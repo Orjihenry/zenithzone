@@ -1,0 +1,47 @@
+
+@media screen and (min-width: 600px) {
+    
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 1rem;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    ul a:has(> img) {
+        display: none;
+    }
+
+    ul {
+        list-style: none;
+        cursor: pointer;
+    }
+}
+
+
+li {
+    cursor: pointer;
+    padding: 2%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: blueviolet;
+}
+
+.logo {
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
