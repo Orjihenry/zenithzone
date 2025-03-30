@@ -19,8 +19,11 @@ A modern, serverless real estate platform designed for listing and discovering p
 
 ## Tech Stack:
 ✅ Frontend: HTML, CSS, JavaScript (Vanilla JS)
+
 ✅ Backend: Serverless (LocalStorage, IndexedDB, or Firebase)
+
 ✅ Deployment: GitHub Pages
 
 🔗 Live Demo: 
+
 📜 License: [MIT](https://choosealicense.com/licenses/mit/)
