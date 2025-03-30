@@ -1,0 +1,106 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 600px) {
+    
+    .header {
+        
+    }
+
+    .nav {
+        background-color: #F8F9FA;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        list-style: none;
+        margin: 0 5%;
+        padding: 5.2px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 1rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
+
+    .slider p {
+        width: 33.5%;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .nav a:has(> img) {
+        display: none;
+    }
+
+    nav {
+        list-style: none;
+        cursor: pointer;
+    }
+
+    h1 {
+        font-size: 1.8rem !important;
+    }
+}
+
+.nav-item {
+    cursor: pointer;
+    padding: 2%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: blueviolet;
+}
+
+.logo {
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.btn-add {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #FFB800;
+    border: none;
+    cursor: pointer;
+}
+
+.slider {
+    width: 100%;
+    padding-left: 5%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: white;
+    text-align: laft;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background-image: url('/assets/keys.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 3rem;
+}
