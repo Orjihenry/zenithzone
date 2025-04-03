@@ -6,10 +6,6 @@
 }
 
 @media screen and (min-width: 600px) {
-    
-    .header {
-        
-    }
 
     .nav {
         background-color: #F8F9FA;
@@ -93,14 +89,58 @@ a:hover {
     text-align: laft;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    background-image: url('/assets/keys.jpg');
+    background-image: url('../assets/keys.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     height: 100vh;
 }
 
 h1 {
     font-size: 3rem;
+}
+
+.featured h2 {
+    position: relative;
+    background-color: #222222;
+    margin: auto;
+    margin-top: -25px;
+    padding: 10px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: solid 1px #222222;
+    border-radius: 14.7px;
+    width: 20%;
+    text-align: center;
+    z-index: 1000;
+}
+
+.properties {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 8px;
+    align-items: center;
+    justify-items: center;
+    padding: 5%;
+}
+
+.property img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: baseline;
+    padding: 5%;
+}
+
+.filter button {
+    margin: 20px 15px;
 }
