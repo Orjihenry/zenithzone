@@ -31,6 +31,48 @@
         width: 33.5%;
     }
 
+    .properties {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(300px, 1fr));
+        grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 8px;
+        align-items: center;
+        justify-items: center;
+        padding: 5%;
+    }
+
+    .extras-content {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+        grid-auto-rows: 1fr;
+        gap: 8px;
+        align-items: center;
+        justify-items: center;
+        padding: 10px 0;
+    }
+
+}
+
+@media screen and (min-width: 645px) and (max-width: 1280px) {
+    .properties {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 8px;
+        align-items: center;
+        justify-items: center;
+        padding: 5%;
+    }
+
+    .extras-content {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        grid-auto-rows: 1fr;
+        gap: 8px;
+        align-items: center;
+        justify-items: center;
+        padding: 10px 0;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -45,6 +87,11 @@
 
     h1 {
         font-size: 1.8rem !important;
+    }
+
+    .featured h2 {
+        font-size: 1rem !important;
+        width: 50% !important;
     }
 }
 
@@ -114,17 +161,7 @@ h1 {
     border-radius: 14.7px;
     width: 20%;
     text-align: center;
-    z-index: 1000;
-}
-
-.properties {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(300px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 8px;
-    align-items: center;
-    justify-items: center;
-    padding: 5%;
+    z-index: .5;
 }
 
 .property img {
@@ -134,13 +171,34 @@ h1 {
 }
 
 .filter {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: baseline;
-    padding: 5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: space-evenly;
+    width: 100%;
+    height: 100%;
+    margin-right: 18px;
 }
 
 .filter button {
     margin: 20px 15px;
 }
+
+.extras {
+    padding: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+.extras-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.extra {
+    background: linear-gradient(to right, #8d909359, #8d909359);
+    border-radius: 10px;
+    padding: 35px;
+    height: 200px;
+}
+
