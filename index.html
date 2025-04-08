@@ -68,15 +68,26 @@
     <main>
         <section class="featured">
             <h2>Featured Listings</h2>
+            <div class="filter">
+                <select name="category" id="category">
+                    <option value="all">All Listings</option>
+                    <option value="residential">Residential</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="land">Lands/Plots</option>
+                    <option value="office">Office Space</option>
+                    <option value="warehouse">Warehouse</option>
+                </select>
+                <select name="location" id="location">
+                    <option value="all">All Locations</option>
+                    <option value="city1">St. John's</option>
+                    <option value="city2">Mount Pearl</option>
+                    <option value="city3">Paradise</option>
+                    <option value="city4">Goulds</option>
+                    <option value="city4">Bay Bulls</option>
+                    <option value="city4">Conception Bay South</option>
+                </select>
+            </div>
             <div class="properties">
-                <div class="filter">
-                    <button class="def-btn">Residential</button>
-                    <button class="def-btn">All Listings</button>
-                    <button class="def-btn">Warehouse</button>
-                    <button class="def-btn">Commercial</button>
-                    <button class="def-btn">Lands/Plots</button>
-                    <button class="def-btn">Office Space</button>
-                </div>
                 <div class="property">
                     <img src="assets/property.jpg" alt="Property 2">
                     <h3>Property 2</h3>
