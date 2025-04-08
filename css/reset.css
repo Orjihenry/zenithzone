@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+html,
+body,
+a,
+p,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+td,
+form,
+span,
+input,
+small,
+center,
+legend,
+iframe,
+textarea,
+fieldset,
+select {
+    font: inherit;
+    font-size: 100%;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    vertical-align: baseline;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+nav,
+main,
+menu,
+aside,
+figure,
+footer,
+header,
+hgroup,
+article,
+details,
+summary,
+section,
+figcaption {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
