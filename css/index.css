@@ -237,6 +237,13 @@
     h1 {
         font-size: var(--mobile-font-size);
     }
+
+    .properties {
+        display:block;
+        align-items: center;
+        justify-items: center;
+        padding: 5%;
+    }
 }
 
 .nav-item {
