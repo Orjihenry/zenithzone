@@ -109,6 +109,162 @@
     padding: 10px 0;
 }
 
+.nav-item {
+    cursor: pointer;
+    padding: 2%;
+}
+
+.slider {
+    width: 100%;
+    padding-left: 5%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: white;
+    text-align: laft;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background-image: url('../assets/keys.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.featured h2 {
+    position: relative;
+    background-color: #222222;
+    margin: auto;
+    margin-top: -25px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: solid 1px #222222;
+    border-radius: 14.7px;
+    width: max-content;
+    white-space: nowrap;
+    text-align: center;
+    z-index: .5;
+}
+
+.property img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.filter {
+    float: right;
+    padding: 10px;
+    padding-right: 5%;
+    border-radius: 8px;
+}
+
+.filter select {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.extras {
+    padding: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+.extras-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.extra {
+    background: var(--linear-background);
+    border-radius: 10px;
+    padding: 35px;
+    height: 200px;
+}
+
+.community {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 50px;
+    background: var(--linear-background);
+    border-radius: 10px;
+}
+
+.testimonial-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 200%;
+}
+
+.testimonial {
+    position: absolute;
+    left: 100%;
+    padding: 20px;
+    width: 50%;
+    float: left;
+    animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        left: 200%;
+    }
+    100% {
+        left: -200%;
+    }
+}
+
+.testimonial:nth-child(1) {
+    animation-delay: calc(15s / 5 * (5 - 1) * -1);
+}
+.testimonial:nth-child(2) {
+    animation-delay: calc(15s / 5 * (5 - 2) * -1);
+}
+.testimonial:nth-child(3) {
+    animation-delay: calc(15s / 5 * (5 - 3) * -1);
+}
+.testimonial:nth-child(4) {
+    animation-delay: calc(15s / 5 * (5 - 4) * -1);
+}
+.testimonial:nth-child(5) {
+    animation-delay: calc(15s / 5 * (5 - 5) * -1);
+}
+
+.newsletter {
+    grid-area: 1 / 2 / 2 / 4;
+    padding: 20px;
+    border-radius: 10px;
+}
+.newsletter input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+
+/* Media Frames */
+
 @media screen and (max-width: 1080px) {
 
     .search,
@@ -253,89 +409,12 @@
         justify-items: center;
         padding: 5%;
     }
-}
 
-.nav-item {
-    cursor: pointer;
-    padding: 2%;
-}
-
-.slider {
-    width: 100%;
-    padding-left: 5%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    color: white;
-    text-align: laft;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    background-image: url('../assets/keys.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    height: 100vh;
-}
-
-h1 {
-    font-size: 3rem;
-}
-
-.featured h2 {
-    position: relative;
-    background-color: #222222;
-    margin: auto;
-    margin-top: -25px;
-    padding: 10px 20px;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 600;
-    border: solid 1px #222222;
-    border-radius: 14.7px;
-    width: max-content;
-    white-space: nowrap;
-    text-align: center;
-    z-index: .5;
-}
-
-.property img {
-    width: 100%;
-    object-fit: cover;
-}
-
-.filter {
-    float: right;
-    padding: 10px;
-    padding-right: 5%;
-    border-radius: 8px;
-}
-
-.filter select {
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-
-
-.extras {
-    padding: 20px;
-    align-items: center;
-    justify-items: center;
-}
-
-.extras-content img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.extra {
-    background: var(--linear-background);
-    border-radius: 10px;
-    padding: 35px;
-    height: 200px;
+    .community {
+        display: block;
+    }
+    
+    .testimonial {
+        position: relative;
+    }
 }
