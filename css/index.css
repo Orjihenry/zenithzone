@@ -11,6 +11,7 @@
     --mobile-font-size: 1.6rem;
     --desktop-font-size: 2rem;
     --grid-gap: 20px;
+    --linear-background: linear-gradient(to right, #8d909359, #8d909359);
 }
 
 .navbar {
@@ -91,6 +92,11 @@
     justify-items: center;
     padding: 5%;
     width: 100%;
+}
+
+.prop-details {
+    background: var(--linear-background);
+    padding: 20px;
 }
 
 .extras-content {
@@ -328,7 +334,7 @@ h1 {
 }
 
 .extra {
-    background: linear-gradient(to right, #8d909359, #8d909359);
+    background: var(--linear-background);
     border-radius: 10px;
     padding: 35px;
     height: 200px;
