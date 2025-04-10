@@ -67,7 +67,7 @@
 }
 
 .add-icon {
-    margin-right: 10px;
+    display: none;
 }
 
 .def-btn {
@@ -92,15 +92,21 @@
 
     .search-icon,
     .add-icon {
+        display: block;
         width: 35px;
+        margin-right: 10px;
     }
 }
 
 @media screen and (max-width: 768px) {
 
+    h2 {
+        font-size: var(--mobile-font-size);
+    }
+
     .navbar {
         align-items: flex-start;
-        height: 10%;
+        height: 11%;
         padding: 20px 0;
         width: 100%;
         background-color: var(--background-color);
