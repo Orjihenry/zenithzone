@@ -102,17 +102,18 @@ h2 {
     justify-items: center;
 }
 
-.extras-content img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.extras > h2,
+.extra > h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 5px;
 }
 
 .extra {
     background: var(--linear-background);
     border-radius: 10px;
     padding: 35px;
-    height: 200px;
+    height: 100%;
 }
 
 .community {
@@ -172,14 +173,6 @@ h2 {
     margin: 10px 10px 10px 0;
 }
 
-.footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: var(--background-color);
-}
-
 
 /* Media Frames */
 
@@ -227,6 +220,14 @@ h2 {
         align-items: center;
         justify-items: center;
         padding: 5%;
+    }
+    
+    .extras-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-items: center;
     }
 
     .community {

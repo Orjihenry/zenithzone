@@ -79,6 +79,35 @@
     white-space: nowrap;
 }
 
+/* Pages Hero Section */
+
+.hero {
+    margin-top: 80px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.351)),
+                url(../assets/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    height: max-content;
+    padding: 5%;
+}
+
+h1 {
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+}
+
+.breadcrumbs {
+    margin: 20px 0;
+    float: right;
+    color: white;
+}
+
+.breadcrumbs a {
+    color: white;
+    text-decoration: none;
+}
+
 
 @media screen and (max-width: 1080px) {
     .search,
@@ -96,6 +125,16 @@
         width: 35px;
         margin-right: 10px;
     }
+}
+
+
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--background-color);
 }
 
 @media screen and (max-width: 768px) {
@@ -190,5 +229,9 @@
     .nav-item a {
         text-decoration: none;
         font-size: var(--mobile-font-size);
+    }
+
+    .hero {
+        margin-top: 100px;
     }
 }
