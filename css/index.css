@@ -116,64 +116,6 @@ h2 {
     height: 100%;
 }
 
-.community {
-    width: 100%;
-    background: var(--linear-background);
-    border-radius: 10px;
-}
-
-.testimonials {
-    display: inline-block;
-    width: 40%;
-    padding: 1rem;
-    overflow: hidden;
-    vertical-align: top;
-    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-}
-
-.testimonial-slider {
-    display: flex;
-    width: 100%;
-    animation: scroll 60s linear infinite;
-}
-
-.testimonial-slider:hover {
-    animation-play-state: paused;
-}
-
-.testimonial {
-    flex: 0 0 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-    white-space: normal;
-}
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-500%);
-    }
-}
-
-.newsletter {
-    display: inline-block;
-    width: 59%;
-    padding: 1rem 5.2rem;
-}
-
-.newsletter > div {
-    padding: 1rem 1rem 1rem 0;
-}
-
-.newsletter input {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    margin: 10px 10px 10px 0;
-}
-
-
 /* Media Frames */
 
 @media screen and (max-width: 1080px) {
@@ -203,10 +145,6 @@ h2 {
         padding: 10px 0;
     }
 
-
-    .newsletter > div {
-        padding: 1rem 1rem 1rem 0;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -229,25 +167,5 @@ h2 {
         align-items: center;
         justify-items: center;
     }
-
-    .community {
-        display: block;
-        width: 100%;
-        padding: 5%;
-    }
-
-    .testimonials {
-        width: 100%;
-        padding: 5%;
-    }
-
-    .newsletter {
-        display: block;
-        width: 100%;
-        padding: 1rem 1rem 1rem 1.4rem;
-    }
-
-    .newsletter > div {
-        padding: 1rem 1rem 1rem 0;
-    }
+    
 }
