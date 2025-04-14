@@ -1,0 +1,44 @@
+.contact-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10% auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    background-color: var(--background-color);
+}
+
+.contact-us h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.contact-us p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.contact-us label {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.contact-us input,
+.contact-us textarea {
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    width: 100%;
+}
+
+.contact-us button:hover {
+    background-color: var(--button-hover-color);
+}
