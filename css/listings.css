@@ -38,7 +38,7 @@ h2 {
 }
 
 .filter-section {
-    margin: 20% 5% 5% 5%;
+    margin: 10% 5% 5% 5%;
     border: none;
     margin-bottom: 0;
     padding-bottom: 2%;
@@ -59,6 +59,10 @@ img {
 }
 
 @media screen and (max-width: 1080px) {
+
+    .filter-section {
+        margin-top: 20%;
+    }
 
     .properties {
         display: grid;
