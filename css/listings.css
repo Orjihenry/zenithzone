@@ -19,22 +19,22 @@ h2 {
     padding: 20px;
 }
 
-.search input {
+.filter-section input {
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
     margin: 10px 10px 10px 0;
 }
 
-.search select {
+.filter-section select {
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
     margin: 10px 10px 10px 0;
 }
 
-.search {
-    margin: 5%;
+.filter-section {
+    margin: 20% 5% 5% 5%;
     border: none;
     margin-bottom: 0;
     padding-bottom: 2%;
@@ -69,6 +69,10 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+
+    /* main {
+        margin-top: 200px;
+    } */
     h1 {
         font-size: var(--mobile-font-size);
     }
@@ -83,11 +87,12 @@ img {
         margin: 5% auto;
     }
     
-    .search {
+    .filter-section {
         grid-template-columns: repeat(1, 1fr);
         gap: var(--grid-gap);
         align-items: center;
         justify-items: center;
+        margin-top: 30%;
         padding: 5%;
     }
 

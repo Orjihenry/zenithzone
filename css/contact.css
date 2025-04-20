@@ -42,3 +42,15 @@
 .contact-us button:hover {
     background-color: var(--button-hover-color);
 }
+
+@media screen and (max-width: 1080px) {
+    .contact-us {
+        margin: 20% auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact-us {
+        margin: 30% auto;
+    }
+}
