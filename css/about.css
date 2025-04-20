@@ -8,14 +8,32 @@
     background-color: var(--background-color);
 }
 
+.about-section {
+    display: flex;
+    justify-content: center;
+}
+
+.about-section .empty {
+    width: 50%;
+    padding: 5%;
+    background-image: url('../assets/rental.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .mission-vision {
     display: flex;
     justify-content: space-around;
 }
 
-.empty {
+.mission-vision .empty {
     width: 50%;
     padding: 5%;
+    background-image: url('../assets/trust.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .cores {
@@ -24,10 +42,24 @@
     background-color: var(--background-color);
 }
 
+.values-section {
+    display: flex;
+    justify-content: space-around;
+}
+
 .values {
     width: 50%;
     padding: 5%;
     background-color: var(--background-color);
+}
+
+.values-section .empty {
+    width: 50%;
+    padding: 5%;
+    background-image: url('../assets/core.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 hr {

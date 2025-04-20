@@ -91,29 +91,18 @@
 
 .hero {
     margin-top: 80px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.351)),
-                url(../assets/hero.jpg);
-    background-size: cover;
-    background-position: center;
-    height: max-content;
+    text-align: center;
+    font-style: italic;
     padding: 5%;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    color: white;
-    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
-.breadcrumbs {
-    margin: 20px 0;
-    float: right;
-    color: white;
-}
-
-.breadcrumbs a {
-    color: white;
-    text-decoration: none;
+.hero p {
+    margin-bottom: 15px;
 }
 
 .community {
