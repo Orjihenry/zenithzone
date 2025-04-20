@@ -19,6 +19,10 @@ h2 {
     padding: 20px;
 }
 
+.prop-details .def-btn {
+    margin-top: 3.5% !important;
+}
+
 .filter-section input {
     padding: 10px;
     border-radius: 8px;

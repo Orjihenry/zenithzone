@@ -95,6 +95,7 @@
                         <h3>Property 2</h3>
                         <p>Address: 456 Elm St, City</p>
                         <p>Price: $800,000</p>
+                        <button class="def-btn">See more</button>
                     </div>
                 </div>
                 <div class="property">
@@ -103,6 +104,7 @@
                         <h3>Property 3</h3>
                         <p>Address: 789 Oak St, City</p>
                         <p>Price: $1,500,000</p>
+                        <button class="def-btn">See more</button>
                     </div>
                 </div>
                 <div class="property">
@@ -111,6 +113,7 @@
                         <h3>Property 3</h3>
                         <p>Address: 789 Oak St, City</p>
                         <p>Price: $1,500,000</p>
+                        <button class="def-btn">See more</button>
                     </div>
                 </div>
                 <div class="property">
@@ -198,9 +201,21 @@
                     <p>Stay updated with the latest listings, tips, and news in the real estate market. Subscribe to our newsletter for exclusive content.</p>
                     <form action="#" method="post">
                         <input type="email" placeholder="Enter your email" required>
-                        <button type="submit" class="def-btn    ">Subscribe</button>
+                        <button type="submit" id="myBtn" class="def-btn">Subscribe</button>
                     </form>
                 </div>
+            </div>
+        </section>
+
+        <section id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Property Name</h2>
+                <img src="assets/property.jpg" alt="Property Image">
+                <p>Address: 123 Main St, City</p>
+                <p>Price: $1,000,000</p>
+                <p>Description: This is a beautiful property located in the heart of the city. It features modern amenities and spacious living areas.</p>
+
             </div>
         </section>
     </main>
@@ -209,5 +224,28 @@
         <small>&copy; 2023 Zenith Zone Realty. All rights reserved.</small>
     </footer>
     
+    <script>
+
+        var modal = document.getElementById("myModal");
+        
+        var btn = document.getElementById("myBtn");
+        
+        var span = document.getElementsByClassName("close")[0];
+        
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+    </script>
+
 </body>
 </html>

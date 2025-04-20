@@ -18,6 +18,10 @@
     padding: 20px;
 }
 
+.prop-details .def-btn {
+    margin-top: 3.5% !important;
+}
+
 .extras-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
