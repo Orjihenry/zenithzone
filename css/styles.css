@@ -88,6 +88,7 @@ img {
 .def-btn {
     border: none;
     cursor: pointer;
+    color: #222222;
     padding: 10px 20px;
     border-radius: 8px;
     background-color: var(--primary-color);
