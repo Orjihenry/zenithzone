@@ -75,8 +75,8 @@ function displayListings() {
             // Build HTML structure
             let html = `
             <div class="property">
-                <div class="prop-details">
-                    <img src="${listing.images[0]}" alt="${listing.title}">
+                <div class="prop-details" data-id="${listing.id}">
+                    <img src="${listing.images[0]}" alt="${listing.title}" class="btn-modal">
                     <div class="prop-info">
                         <h3>${listing.title}</h3>
                         <p>Price: $${listing.price}</p>
@@ -98,27 +98,39 @@ function displayListings() {
     // Add event listeners to the buttons
     const modalDialog = document.querySelector(".modal");
     const button = document.querySelector(".btn-modal");
-    var span = document.getElementsByClassName("close")[0];
-    
     const buttons = document.querySelectorAll(".btn-modal");
-    
-    // Open modal function
+
+    // Open modal dialog
     buttons.forEach(button => {
-        button.addEventListener("click", () => {
-            modalDialog.style.display = "block";
+        button.addEventListener("click", (e) => {
+            let id = parseInt(e.target.closest(".prop-details").dataset.id);
+            let listing = listings.find(listing => listing.id === id);
+            if (listing) {
+                modalDialog.style.display = "block";
+                modalDialog.innerHTML = `
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>${listing.title}</h2>
+                        <img src="${listing.images[0]}" alt="${listing.title}">
+                        <p>Address: ${listing.address}</p>
+                        <p>Location: ${listing.location}</p>
+                        <p>Price: $${listing.price}</p>
+                        <p>Description: ${listing.description}</p>
+                    </div>
+                `;
+
+                const closeButton = modalDialog.querySelector(".close");
+                closeButton.addEventListener("click", () => {
+                    modalDialog.style.display = "none";
+                });
+                window.onclick = function(event) {
+                    if (event.target == modalDialog) {
+                      modalDialog.style.display = "none";
+                    }
+                }
+            }
         });
     });
-    
-    // Close modal function
-    span.onclick = function() {
-        modalDialog.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modalDialog) {
-          modalDialog.style.display = "none";
-        }
-    }
 }
 
 // Preview images function
