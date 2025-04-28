@@ -1,5 +1,5 @@
 h2 {
-    font-size: var(desktop-font-size);
+    font-size: 1.5em;
     font-weight: 600;
     padding-bottom: 10px;
 }
@@ -16,11 +16,29 @@ h2 {
 
 .prop-details {
     background: var(--linear-background);
+}
+
+.prop-info {
     padding: 20px;
+}
+
+.prop-info h3 {
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .prop-details .def-btn {
     margin-top: 3.5% !important;
+}
+
+.no-listings {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10%;
+    padding: 5%;
 }
 
 .filter-section input {

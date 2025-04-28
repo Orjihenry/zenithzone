@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/listings.css">
     <title>Listeings - Zenith Zone Realty</title>
 </head>
-<body>
+<body  onload="displayListings();">
     <header class="header">
         <nav class="navbar">
 
@@ -72,66 +72,11 @@
         </section>
         
         <section class="featured">
-            <div class="properties">
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 2">
-                    <div class="prop-details">
-                        <h3>Property 2</h3>
-                        <p>Address: 456 Elm St, City</p>
-                        <p>Price: $800,000</p>
-                        <button class="def-btn">See more</button>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 3">
-                    <div class="prop-details">
-                        <h3>Property 3</h3>
-                        <p>Address: 789 Oak St, City</p>
-                        <p>Price: $1,500,000</p>
-                        <button class="def-btn">See more</button>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 3">
-                    <div class="prop-details">
-                        <h3>Property 3</h3>
-                        <p>Address: 789 Oak St, City</p>
-                        <p>Price: $1,500,000</p>
-                        <button class="def-btn">See more</button>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 1">
-                    <div class="prop-details">
-                        <h3>Property 1</h3>
-                        <p>Address: 123 Main St, City</p>
-                        <p>Price: $1,000,000</p>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 2">
-                    <div class="prop-details">
-                        <h3>Property 2</h3>
-                        <p>Address: 456 Elm St, City</p>
-                        <p>Price: $800,000</p>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 3">
-                    <div class="prop-details">
-                        <h3>Property 3</h3>
-                        <p>Address: 789 Oak St, City</p>
-                        <p>Price: $1,500,000</p>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 3">
-                    <div class="prop-details">
-                        <h3>Property 3</h3>
-                        <p>Address: 789 Oak St, City</p>
-                        <p>Price: $1,500,000</p>
-                    </div>
-                </div>
+            <div class="properties" id="listings">
+            </div>
+            <div class="no-listings">
+                <h2 style="width: 100%; text-align: center;">No Listings Available</h2>
+                <p style="width: 100%; text-align: center;">Please check back later.</p>
             </div>
         </section>
 
@@ -139,27 +84,33 @@
             <h2>Recently Viewed</h2>
             <div class="properties">
                 <div class="property">
-                    <img src="assets/property.jpg" alt="Property 1">
                     <div class="prop-details">
-                        <h3>Property 1</h3>
-                        <p>Address: 123 Main St, City</p>
-                        <p>Price: $1,000,000</p>
+                        <img src="assets/property.jpg" alt="Property 1">
+                        <div class="prop-info">
+                            <h3>Property 1</h3>
+                            <p>Address: 123 Main St, City</p>
+                            <p>Price: $1,000,000</p>
+                        </div>
                     </div>
                 </div>
                 <div class="property">
-                    <img src="assets/property.jpg" alt="Property 2">
                     <div class="prop-details">
-                        <h3>Property 2</h3>
-                        <p>Address: 456 Elm St, City</p>
-                        <p>Price: $800,000</p>
+                        <img src="assets/property.jpg" alt="Property 2">
+                        <div class="prop-info">
+                            <h3>Property 2</h3>
+                            <p>Address: 456 Elm St, City</p>
+                            <p>Price: $800,000</p>
+                        </div>
                     </div>
                 </div>
                 <div class="property">
-                    <img src="assets/property.jpg" alt="Property 3">
                     <div class="prop-details">
-                        <h3>Property 3</h3>
-                        <p>Address: 789 Oak St, City</p>
-                        <p>Price: $1,500,000</p>
+                        <img src="assets/property.jpg" alt="Property 3">
+                        <div class="prop-info"></div>
+                            <h3>Property 3</h3>
+                            <p>Address: 789 Oak St, City</p>
+                            <p>Price: $1,500,000</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -203,10 +154,24 @@
             </div>
         </section>
 
+        <section id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Property Name</h2>
+                <img src="assets/property.jpg" alt="Property Image">
+                <p>Address: 123 Main St, City</p>
+                <p>Price: $1,000,000</p>
+                <p>Description: This is a beautiful property located in the heart of the city. It features modern amenities and spacious living areas.</p>
+
+            </div>
+        </section>
+
     </main>
 
     <footer class="footer">
         <p>&copy; 2023 Zenith Zone Realty. All rights reserved.</p>
     </footer>
+    
+    <script src="js/main.js"></script>
 </body>
 </html>
