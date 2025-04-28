@@ -121,6 +121,39 @@ function displayListings() {
     }
 }
 
+// Preview images function
+// This function allows users to preview images before uploading them
+let imagesInput = document.querySelector("#images");
+let output = document.querySelector("#image-preview");
+let imageUrls = [];
+if (imagesInput) {
+    imagesInput.addEventListener("change", (e) => {
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+            output.innerHTML = "";
+            imageUrls = [];
+            let files = e.target.files;
+            for (let i = 0; i < files.length; i++) {
+                let file = files[i];
+                if (!file.type.match('image')) continue;
+
+                let reader = new FileReader();
+                reader.addEventListener("load", (e) => {
+                    let imageFile = e.target;
+                    div = document.createElement("div");
+                    div.innerHTML = `<img class="thumbnail" src="${imageFile.result}" title="${file.name}"/>`;
+                    output.appendChild(div);
+
+                    imageUrls.push(imageFile.result);
+                });
+                reader.readAsDataURL(file);
+            }
+        }
+        else {
+            alert("The File APIs are not fully supported in this browser.");
+        }
+    });
+}
+
 // Create listings function
 function createListings() {
     let id = uid();
@@ -130,7 +163,7 @@ function createListings() {
     let price = document.querySelector("#price").value;
     let location = document.querySelector("#location").value;
     let address = document.querySelector("#address").value;
-    let images = document.querySelector("#images").value.split(",");
+    let images = imageUrls
         images = images.map(image => image.trim());
 
     var newListings = {
