@@ -47,11 +47,11 @@
         <section class="filter-section">
             <form action="#" method="get">
                 <h2>Browse Listings</h2>
-                <input type="text" name="search" placeholder="Search by address, city, or zip code">
+                <input type="search" name="search" placeholder="Search by address, city, or zip code" oninput="filterByName(event)">
                 <button type="submit" class="def-btn">Search</button>
             </form>
             <div class="filter">
-                <select name="category" id="category">
+                <select name="category" id="category" onchange="filterByCategory(event)">
                     <option value="all">All Listings</option>
                     <option value="residential">Residential</option>
                     <option value="commercial">Commercial</option>
@@ -59,14 +59,14 @@
                     <option value="office">Office Space</option>
                     <option value="warehouse">Warehouse</option>
                 </select>
-                <select name="location" id="location">
+                <select name="location" id="location" onchange="filterByLocation(event)">
                     <option value="all">All Locations</option>
-                    <option value="city1">St. John's</option>
-                    <option value="city2">Mount Pearl</option>
-                    <option value="city3">Paradise</option>
-                    <option value="city4">Goulds</option>
-                    <option value="city4">Bay Bulls</option>
-                    <option value="city4">Conception Bay South</option>
+                    <option value="St. John's">St. John's</option>
+                    <option value="Mount Pearl">Mount Pearl</option>
+                    <option value="Paradise">Paradise</option>
+                    <option value="Goulds">Goulds</option>
+                    <option value="Bay Bulls">Bay Bulls</option>
+                    <option value="Conception Bay South">Conception Bay South</option>
                 </select>
             </div>
         </section>
@@ -165,5 +165,6 @@
     </footer>
     
     <script src="js/main.js"></script>
+    <script src="js/filter.js"></script>
 </body>
 </html>
