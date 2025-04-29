@@ -4,7 +4,7 @@ var listings = [
     title: "Beautiful Beach House",
     description: "A stunning beach house with ocean views.",
     price: 500000,
-    location: "California",
+    location: "Mount Pearl",
     address: "456 Elm St, Cityville, CA 12345",
     images: [
         "assets/property.jpg",
@@ -17,7 +17,7 @@ var listings = [
     title: "Modern Apartment",
     description: "A sleek modern apartment in the city.",
     price: 300000,
-    location: "New York",
+    location: "Paradise",
     address: "123 Main St, Cityville, NY 10001",
     images: [
         "assets/property.jpg",
@@ -30,7 +30,7 @@ var listings = [
     title: "Cozy Cottage",
     description: "A charming cottage in the countryside.",
     price: 200000,
-    location: "Vermont",
+    location: "Paradise",
     address: "789 Maple St, Cityville, VT 05601",
     images: [
         "assets/property.jpg",
@@ -43,7 +43,7 @@ var listings = [
     title: "Luxury Villa",
     description: "A luxurious villa with a private pool.",
     price: 1000000,
-    location: "Florida",
+    location: "Mount Pearl",
     address: "321 Oak St, Cityville, FL 33101",
     images: [
         "assets/property.jpg",
@@ -74,7 +74,7 @@ function displayListings() {
         listings.forEach((listing) => {
             // Build HTML structure
             let html = `
-            <div class="property">
+            <div class="property" id="details">
                 <div class="prop-details" data-id="${listing.id}">
                     <img src="${listing.images[0]}" alt="${listing.title}" class="btn-modal">
                     <div class="prop-info">
@@ -116,6 +116,8 @@ function displayListings() {
                         <p>Location: ${listing.location}</p>
                         <p>Price: $${listing.price}</p>
                         <p>Description: ${listing.description}</p>
+                        <button class="def-btn" id="edit-listing" onclick="document.preventDefault(); editListings();">Edit</button>
+                        <button class="def-btn" id="delete-listing">Delete</button>
                     </div>
                 `;
 
@@ -128,7 +130,14 @@ function displayListings() {
                       modalDialog.style.display = "none";
                     }
                 }
+
             }
+            var deleteButton = modalDialog.querySelector("#delete-listing");
+            deleteButton.addEventListener("click", (e) => {
+                listings = listings.filter(listing => listing.id !== id);
+                localStorage.setItem("listings", JSON.stringify(listings));
+                window.location.reload();
+            });
         });
     });
 }
@@ -213,15 +222,36 @@ function createListings() {
 }
 
 // Edit listings function
-function editListings(id) {
-    let listing = listings.find(listing => listing.id == id);
-    if (listing) {
-        document.querySelector("#title").value = listing.title;
-        document.querySelector("#property-type").value = listing.listingType;
-        document.querySelector("#description").value = listing.description;
-        document.querySelector("#price").value = listing.price;
-        document.querySelector("#location").value = listing.location;
-        document.querySelector("#address").value = listing.address;
-        document.querySelector("#images").value = listing.images.join(", ");
+
+function editListings() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get("id"));
+    let listing = listings.find(listing => listing.id === id);
+    if (!listing) {
+        console.error("Listing not found");
+        return;
     }
+    var editButton = modalDialog.querySelector("#edit-listing");
+            editButton.addEventListener("click", (e) => {
+                let target = e.target;
+                if (target.classList.contains("def-btn")) {
+                    let listing = listings.find((listing) => listing.id === id);
+                    window.location.href = "edit.html?id=" + listing.id;
+                }
+            });
+}
+
+function update(id) {
+    let listing = listings.find(listing => listing.id === id);
+
+    document.querySelector("#title").value = listing.title;
+    document.querySelector("#property-type").value = listing.listingType;
+    document.querySelector("#description").value = listing.description;
+    document.querySelector("#price").value = listing.price;
+    document.querySelector("#location").value = listing.location;
+    document.querySelector("#address").value = listing.address;
+    document.querySelector("#images").value = listing.images.join(", ");
+    console.log(listing.id);
+
+
 }
