@@ -31,29 +31,12 @@ iframe,
 textarea,
 fieldset,
 select {
-    font: inherit;
     font-size: 100%;
     text-decoration: none;
     scroll-behavior: smooth;
     vertical-align: baseline;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-}
-
-nav,
-main,
-menu,
-aside,
-figure,
-footer,
-header,
-hgroup,
-article,
-details,
-summary,
-section,
-figcaption {
-    display: block;
 }
 
 body {
