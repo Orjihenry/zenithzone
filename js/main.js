@@ -116,7 +116,7 @@ function displayListings() {
                         <p>Location: ${listing.location}</p>
                         <p>Price: $${listing.price}</p>
                         <p>Description: ${listing.description}</p>
-                        <button class="def-btn" id="edit-listing" onclick="document.preventDefault(); editListings();">Edit</button>
+                        <button class="def-btn" id="edit-listing">Edit</button>
                         <button class="def-btn" id="delete-listing">Delete</button>
                     </div>
                 `;
@@ -132,6 +132,11 @@ function displayListings() {
                 }
 
             }
+            const editButton = modalDialog.querySelector("#edit-listing");
+            editButton.addEventListener("click", (e) => {
+                e.preventDefault();
+                window.location.href = "edit.html?id=" + listing.id;
+            });
             var deleteButton = modalDialog.querySelector("#delete-listing");
             deleteButton.addEventListener("click", (e) => {
                 listings = listings.filter(listing => listing.id !== id);
@@ -222,24 +227,6 @@ function createListings() {
 }
 
 // Edit listings function
-
-function editListings() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = parseInt(urlParams.get("id"));
-    let listing = listings.find(listing => listing.id === id);
-    if (!listing) {
-        console.error("Listing not found");
-        return;
-    }
-    var editButton = modalDialog.querySelector("#edit-listing");
-            editButton.addEventListener("click", (e) => {
-                let target = e.target;
-                if (target.classList.contains("def-btn")) {
-                    let listing = listings.find((listing) => listing.id === id);
-                    window.location.href = "edit.html?id=" + listing.id;
-                }
-            });
-}
 
 function update(id) {
     let listing = listings.find(listing => listing.id === id);
