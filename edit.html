@@ -122,19 +122,23 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get("id");
-        console.log("this is my ID: " + id);
+        const id = parseInt(urlParams.get("id"));
 
         const listings = JSON.parse(localStorage.getItem("listings")) || [];
         const listing = listings.find(l => l.id === id);
-        console.log(listing)
 
-        // document.getElementById("title").value = listings.find(listing => listing.id === id).title;
-        // document.getElementById("property-type").value = listings.find(listing => listing.id === id).listingType;
-        // document.getElementById("description").value = listings.find(listing => listing.id === id).description;
-        // document.getElementById("price").value = listings.find(listing => listing.id === id).price;
-        // document.getElementById("location").value = listings.find(listing => listing.id === id).location;
-        // document.getElementById("address").value = listings.find(listing => listing.id === id).address;
-        // document.getElementById("images").value = listings.find(listing => listing.id === id).images.join(", ");
+        if (!listing) {
+            alert("Listing not found");
+            window.location.href = "listings.html";
+            return;
+        }
+
+        document.getElementById("title").value = listing.title;
+        document.getElementById("property-type").value = listing.listingType;
+        document.getElementById("description").value = listing.description;
+        document.getElementById("price").value = listing.price;
+        document.getElementById("location").value = listing.location;
+        document.getElementById("address").value = listing.address;
+        document.getElementById("images").value = listing.images.join(", ");
     })
 </script>
