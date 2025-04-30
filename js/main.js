@@ -228,6 +228,27 @@ function createListings() {
 
 // Edit listings function
 
+function editListings(editId) {
+    console.log(editId);
+    // const urlParams = new URLSearchParams(window.location.search);
+    let listing = listings.find(listing => listing.id === id);
+    const id = parseInt(listing.get("id"));
+    if (!listing) {
+        console.error("Listing not found");
+        return;
+    }
+    var editButton = modalDialog.querySelector("#edit-listing");
+            editButton.addEventListener("click", (e) => {
+
+                console.log("Edit button clicked");
+                let target = e.target;
+                if (target.classList.contains("def-btn")) {
+                    let listing = listings.find((listing) => listing.id === id);
+                    window.location.href = "edit.html?id=" + listing.id;
+                }
+            });
+}
+
 function update(id) {
     let listing = listings.find(listing => listing.id === id);
 
