@@ -6,11 +6,21 @@
     margin: 10% auto;
 }
 
-.listing-form {
+.update-form {
     display: flex;
     flex-direction: column;
     padding: 5%;
+    width: 80%;
+    margin: 0 auto;
     background-color: var(--background-color);
+}
+
+.server-message {
+    width: 100%;
+    display: none;
+    padding: 16px;
+    margin-bottom: 1em;
+    border-radius: 5px;
 }
 
 .form h1 {
@@ -36,9 +46,40 @@
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 20px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #666;
     border-radius: 5px;
     width: 100%;
+}
+
+.input-div {
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    color: #666;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+}
+
+.input-div:hover {
+    background-color: #f0f0f0;
+}
+
+.input-div input[type="file"] {
+    font-size: 1rem;
+    background: transparent;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.input-div p {
+    font-size: 1rem;
+    color: #666;
 }
 
 .form #image-preview {
@@ -49,12 +90,31 @@
     margin-bottom: 20px;
 }
 
-.form .thumbnail {
+.thumbnail-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .form .thumbnail {
     width: 100px;
     height: 100px;
     border-radius: 5px;
     object-fit: cover;
-}
+  }
+  
+  .remove {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    color: gray;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 14px;
+  }
 
 .form button:hover {
     background-color: var(--button-hover-color);
