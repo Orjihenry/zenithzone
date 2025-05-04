@@ -85,8 +85,11 @@
                     <textarea id="description" name="description" rows="4" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="image">Upload Image</label>
-                    <input type="file" id="images" name="images" multiple accept="image/*" required>
+                    <label for="images">Upload Image</label>
+                    <label class="input-div" for="images">
+                        <p>Drag and drop or click to upload</p>
+                        <input type="file" id="images" name="images" multiple accept="image/*" required style="display: none;">
+                    </label>
                     <output id="image-preview"></output>
                 </div>
                 <div class="form-group">

@@ -4,6 +4,7 @@ var listings = [
     title: "Beautiful Beach House",
     description: "A stunning beach house with ocean views.",
     price: 500000,
+    featured: true,
     location: "Mount Pearl",
     address: "456 Elm St, Cityville, CA 12345",
     images: [
@@ -151,31 +152,47 @@ function displayListings() {
 // This function allows users to preview images before uploading them
 let imagesInput = document.querySelector("#images");
 let output = document.querySelector("#image-preview");
-let imageUrls = [];
+let urlParams = new URLSearchParams(window.location.search);
+let listingId = parseInt(urlParams.get("id"));
+
+let listing = listings.find(l => l.id === listingId);
+let imageUrls = listing?.images ? [...listing.images] : [];
+
+// Handle new image selection
 if (imagesInput) {
     imagesInput.addEventListener("change", (e) => {
-        if (window.File && window.FileReader && window.FileList && window.Blob) {
-            output.innerHTML = "";
-            imageUrls = [];
-            let files = e.target.files;
-            for (let i = 0; i < files.length; i++) {
-                let file = files[i];
-                if (!file.type.match('image')) continue;
-
-                let reader = new FileReader();
-                reader.addEventListener("load", (e) => {
-                    let imageFile = e.target;
-                    div = document.createElement("div");
-                    div.innerHTML = `<img class="thumbnail" src="${imageFile.result}" title="${file.name}"/>`;
-                    output.appendChild(div);
-
-                    imageUrls.push(imageFile.result);
-                });
-                reader.readAsDataURL(file);
-            }
+        if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
+            return alert("The File APIs are not fully supported in this browser.");
         }
-        else {
-            alert("The File APIs are not fully supported in this browser.");
+
+        let files = e.target.files;
+        if (!files.length) return;
+
+        for (let i = 0; i < files.length; i++) {
+            let file = files[i];
+            if (!file.type.match("image")) continue;
+
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                const imageUrl = e.target.result;
+
+                const div = document.createElement("div");
+                div.classList.add("thumbnail-wrapper");
+                div.innerHTML = `
+                    <span class="remove">&times;</span>
+                    <img class="thumbnail" src="${imageUrl}" title="${file.name}"/>
+                `;
+
+                div.querySelector(".remove").addEventListener("click", () => {
+                    output.removeChild(div);
+                    imageUrls = imageUrls.filter(url => url !== imageUrl);
+                });
+
+                output.appendChild(div);
+                imageUrls.push(imageUrl);
+            };
+
+            reader.readAsDataURL(file);
         }
     });
 }
@@ -204,62 +221,42 @@ function createListings() {
     };
 
     listings.push(newListings);
-
-    const newListing = document.createElement("div");
-    newListing.classList.add("property");
-    newListing.dataset.id = id;
-    newListing.innerHTML = `
-        <div class="prop-details">
-            <img src="${newListings.images[0]}" alt="${newListings.title}">
-            <div class="prop-info">
-                <h3>${newListings.title}</h3>
-                <p>Price: $${newListings.price}</p>
-                <p>Location: ${newListings.location}</p>
-                <p>Address: ${newListings.address}</p>
-                <button class="def-btn btn-modal">View More</button>
-            </div>
-        </div>
-    `;
-    
     localStorage.setItem("listings", JSON.stringify(listings));
 
     window.location.href = "listings.html";
 }
 
 // Edit listings function
+function update() {
+    let urlParams = new URLSearchParams(window.location.search);
+    let listingId = parseInt(urlParams.get("id"));
 
-function editListings(editId) {
-    console.log(editId);
-    // const urlParams = new URLSearchParams(window.location.search);
-    let listing = listings.find(listing => listing.id === id);
-    const id = parseInt(listing.get("id"));
-    if (!listing) {
-        console.error("Listing not found");
-        return;
-    }
-    var editButton = modalDialog.querySelector("#edit-listing");
-            editButton.addEventListener("click", (e) => {
+    let listings = JSON.parse(localStorage.getItem("listings")) || [];
+    let listing = listings.find(l => l.id === listingId);
 
-                console.log("Edit button clicked");
-                let target = e.target;
-                if (target.classList.contains("def-btn")) {
-                    let listing = listings.find((listing) => listing.id === id);
-                    window.location.href = "edit.html?id=" + listing.id;
-                }
-            });
-}
+    let title = document.querySelector("#title").value;
+    let listingType = document.querySelector("#property-type").value;
+    let description = document.querySelector("#description").value;
+    let price = document.querySelector("#price").value;
+    let location = document.querySelector("#location").value;
+    let address = document.querySelector("#address").value;
+    let images = imageUrls || [];
+        images = images.map(image => image.trim());
 
-function update(id) {
-    let listing = listings.find(listing => listing.id === id);
+    var updatedListing = {
+        title: title,
+        listingType: listingType,
+        description: description,
+        price: price,
+        location: location,
+        address: address,
+        images: images
+    };
 
-    document.querySelector("#title").value = listing.title;
-    document.querySelector("#property-type").value = listing.listingType;
-    document.querySelector("#description").value = listing.description;
-    document.querySelector("#price").value = listing.price;
-    document.querySelector("#location").value = listing.location;
-    document.querySelector("#address").value = listing.address;
-    document.querySelector("#images").value = listing.images.join(", ");
-    console.log(listing.id);
+    console.log(updatedListing);
 
+    // listing[index] = updatedListing;
+    // localStorage.setItem("listings", JSON.stringify(listings));
 
+    // window.location.href = "listings.html";
 }
