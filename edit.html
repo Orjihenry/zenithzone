@@ -106,7 +106,7 @@
                     <input type="text" value="" id="contact" name="contact" required>
                 </div>
                 <div class="form-group" style="display: flex; gap: 20px;">
-                    <button type="submit" class="def-btn" onclick="validateForm();">Submit</button>
+                    <button type="button" class="def-btn" onclick="validateForm();">Submit</button>
 
                     <button type="button" class="def-btn">Cancel</button>
                 </div>
@@ -160,6 +160,10 @@
         document.getElementById("property-type").value = listing.propertyType;
         document.getElementById("description").value = listing.description;
         document.getElementById("price").value = listing.price;
+        document.getElementById("bedrooms").value = listing.bedrooms;
+        document.getElementById("bathrooms").value = listing.bathrooms;
+        document.getElementById("status").value = listing.status;
+        document.getElementById("contact").value = listing.contact;
         document.getElementById("city").value = listing.city;
         document.getElementById("address").value = listing.address;
     })

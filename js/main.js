@@ -5,7 +5,11 @@ var listings = [
     description: "A stunning beach house with ocean views.",
     price: 500000,
     featured: true,
+    bedrooms: 4,
+    bathrooms: 3,
+    status: 'available',
     propertyType: "house",
+    contact: "123-456-7890",
     city: "Mount Pearl",
     address: "456 Elm St, Cityville, CA 12345",
     images: [
@@ -20,7 +24,11 @@ var listings = [
     description: "A sleek modern apartment in the city.",
     price: 300000,
     featured: true,
+    bedrooms: 2,
+    bathrooms: 1,
+    status: 'available',
     propertyType: "apartment",
+    contact: "987-654-3210",
     city: "Paradise",
     address: "123 Main St, Cityville, NY 10001",
     images: [
@@ -35,7 +43,11 @@ var listings = [
     description: "A charming cottage in the countryside.",
     price: 200000,
     featured: true,
-    propertyType: "cottage",
+    bedrooms: 3,
+    bathrooms: 2,
+    status: 'available',
+    propertyType: "condo",
+    contact: "555-555-5555",
     city: "Paradise",
     address: "789 Maple St, Cityville, VT 05601",
     images: [
@@ -50,7 +62,11 @@ var listings = [
     description: "A luxurious villa with a private pool.",
     price: 1000000,
     featured: false,
+    bedrooms: 5,
+    bathrooms: 4,
+    status: 'available',
     propertyType: "villa",
+    contact: "111-222-3333",
     city: "Mount Pearl",
     address: "321 Oak St, Cityville, FL 33101",
     images: [
@@ -123,6 +139,10 @@ function displayListings() {
                         <p>Address: ${listing.address}</p>
                         <p>City: ${listing.city}</p>
                         <p>Price: $${listing.price}</p>
+                        <p>Bedrooms: ${listing.bedrooms}</p>
+                        <p>Bathrooms: ${listing.bathrooms}</p>
+                        <p>Contact: ${listing.contact}</p>
+                        <p>Property Type: ${listing.propertyType}</p>
                         <p>Description: ${listing.description}</p>
                         <button class="def-btn" id="edit-listing">Edit</button>
                         <button class="def-btn" id="delete-listing">Delete</button>
@@ -149,7 +169,7 @@ function displayListings() {
             deleteButton.addEventListener("click", (e) => {
                 listings = listings.filter(listing => listing.id !== id);
                 localStorage.setItem("listings", JSON.stringify(listings));
-                window.location.reload();
+                window.location.href = "listings.html?deleted=true";
             });
         });
     });
@@ -227,10 +247,14 @@ function checkValidation() {
     const propertyType = document.querySelector("#property-type").value.trim();
     const description = document.querySelector("#description").value.trim();
     const price = document.querySelector("#price").value.trim();
+    const bedrooms = document.querySelector("#bedrooms").value.trim();
+    const bathrooms = document.querySelector("#bathrooms").value.trim();
+    const status = document.querySelector("#status").value.trim();
+    const contact = document.querySelector("#contact").value.trim();
     const city = document.querySelector("#city").value.trim();
     const address = document.querySelector("#address").value.trim();
 
-    const requiredFields = [title, propertyType, description, price, city, address];
+    const requiredFields = [title, propertyType, description, price, bedrooms, bathrooms, status, contact, city, address];
 
     const allFilled = requiredFields.every(field => field !== "");
 
@@ -246,6 +270,10 @@ function createListings() {
     let propertyType = document.querySelector("#property-type").value;
     let description = document.querySelector("#description").value;
     let price = document.querySelector("#price").value;
+    let bedrooms = document.querySelector("#bedrooms").value;
+    let bathrooms = document.querySelector("#bathrooms").value;
+    let status = document.querySelector("#status").value;
+    let featured = false;
     let city = document.querySelector("#city").value;
     let address = document.querySelector("#address").value;
     let images = imageUrls
@@ -258,6 +286,10 @@ function createListings() {
         description: description,
         price: price,
         city: city,
+        bedrooms: bedrooms,
+        bathrooms: bathrooms,
+        status: status,
+        featured: featured,
         address: address,
         images: images
     };
@@ -265,7 +297,7 @@ function createListings() {
     listings.push(newListings);
     localStorage.setItem("listings", JSON.stringify(listings));
 
-    window.location.href = "listings.html";
+    window.location.href = "listings.html?created=true";
 }
 
 // Edit listings function
@@ -280,6 +312,10 @@ function update() {
     let propertyType = document.querySelector("#property-type").value;
     let description = document.querySelector("#description").value;
     let price = document.querySelector("#price").value;
+    let bedrooms = document.querySelector("#bedrooms").value;
+    let bathrooms = document.querySelector("#bathrooms").value;
+    let status = document.querySelector("#status").value;
+    let featured = listings[index].featured;
     let city = document.querySelector("#city").value;
     let address = document.querySelector("#address").value;
     let images = imageUrls || [];
@@ -290,6 +326,10 @@ function update() {
         propertyType: propertyType,
         description: description,
         price: price,
+        bedrooms: bedrooms,
+        bathrooms: bathrooms,
+        status: status,
+        featured: featured,
         city: city,
         address: address,
         images: images

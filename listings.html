@@ -166,5 +166,24 @@
     
     <script src="js/main.js"></script>
     <script src="js/filter.js"></script>
+    <script>
+        let updated = urlParams.get("updated");
+        let deleted = urlParams.get("deleted");
+        let created = urlParams.get("created");
+    
+        if (updated) {
+             alert("Listing updated successfully!");
+        } else if (deleted) {
+            alert("Listing deleted successfully!");
+        }
+        else if (created) {
+            alert("Listing created successfully!");
+        }
+    
+        // Remove query parameters from URL
+        if (updated || deleted || created) {
+            history.replaceState(null, "", window.location.pathname);
+        }
+    </script>
 </body>
 </html>
