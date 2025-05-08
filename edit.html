@@ -45,15 +45,16 @@
     </header>
     <main>
         <section class="form">
-            <form action="#" method="POST" class="update-form">
+            <form method="POST" id="update-form" class="update-form">
                 <h1>Update Listings</h1>
+                <p class="required">All fields are required *</p>
                 <div class="form-group"> 
                     <label for="title">Property Title</label>
                     <input type="text" id="title" name="title" required>
                 </div>
                 <div class="form-group prop-type">
                     <label for="property-type">Property Type</label>
-                    <select id="property-type" name="property-type" required>
+                    <select id="property-type" name="property-type">
                         <option value="" disabled selected>Select Property Type</option>
                         <option value="house">House</option>
                         <option value="apartment">Apartment</option>
@@ -61,8 +62,8 @@
                     </select>
                 </div>
                 <div class="form-group"> 
-                    <label for="location">Location</label>
-                    <input type="text" value="" id="location" name="location" required>
+                    <label for="city">City</label>
+                    <input type="text" value="" id="city" name="city" required>
                 </div>
                 <div class="form-group"> 
                     <label for="address">Address</label>
@@ -88,7 +89,7 @@
                     <label for="images">Upload Image</label>
                     <label class="input-div" for="images">
                         <p>Drag and drop or click to upload</p>
-                        <input type="file" id="images" name="images" multiple accept="image/*" required style="display: none;">
+                        <input type="file" id="images" name="images" multiple accept="image/*" style="display: none;">
                     </label>
                     <output id="image-preview"></output>
                 </div>
@@ -105,7 +106,7 @@
                     <input type="text" value="" id="contact" name="contact" required>
                 </div>
                 <div class="form-group" style="display: flex; gap: 20px;">
-                    <button type="submit" class="def-btn" onclick="update();">Submit</button>
+                    <button type="submit" class="def-btn" onclick="validateForm();">Submit</button>
 
                     <button type="button" class="def-btn">Cancel</button>
                 </div>
@@ -126,9 +127,10 @@
     document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
         const id = parseInt(urlParams.get("id"));
-
+        
         const listings = JSON.parse(localStorage.getItem("listings")) || [];
         const listing = listings.find(l => l.id === id);
+        let output = document.querySelector("#image-preview");
 
         if (!listing) {
             alert("Listing not found");
@@ -155,10 +157,10 @@
         }
 
         document.getElementById("title").value = listing.title;
-        document.getElementById("property-type").value = listing.listingType;
+        document.getElementById("property-type").value = listing.propertyType;
         document.getElementById("description").value = listing.description;
         document.getElementById("price").value = listing.price;
-        document.getElementById("location").value = listing.location;
+        document.getElementById("city").value = listing.city;
         document.getElementById("address").value = listing.address;
     })
 </script>

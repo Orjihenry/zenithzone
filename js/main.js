@@ -5,7 +5,8 @@ var listings = [
     description: "A stunning beach house with ocean views.",
     price: 500000,
     featured: true,
-    location: "Mount Pearl",
+    propertyType: "house",
+    city: "Mount Pearl",
     address: "456 Elm St, Cityville, CA 12345",
     images: [
         "assets/property.jpg",
@@ -18,7 +19,9 @@ var listings = [
     title: "Modern Apartment",
     description: "A sleek modern apartment in the city.",
     price: 300000,
-    location: "Paradise",
+    featured: true,
+    propertyType: "apartment",
+    city: "Paradise",
     address: "123 Main St, Cityville, NY 10001",
     images: [
         "assets/property.jpg",
@@ -31,7 +34,9 @@ var listings = [
     title: "Cozy Cottage",
     description: "A charming cottage in the countryside.",
     price: 200000,
-    location: "Paradise",
+    featured: true,
+    propertyType: "cottage",
+    city: "Paradise",
     address: "789 Maple St, Cityville, VT 05601",
     images: [
         "assets/property.jpg",
@@ -44,7 +49,9 @@ var listings = [
     title: "Luxury Villa",
     description: "A luxurious villa with a private pool.",
     price: 1000000,
-    location: "Mount Pearl",
+    featured: false,
+    propertyType: "villa",
+    city: "Mount Pearl",
     address: "321 Oak St, Cityville, FL 33101",
     images: [
         "assets/property.jpg",
@@ -81,7 +88,7 @@ function displayListings() {
                     <div class="prop-info">
                         <h3>${listing.title}</h3>
                         <p>Price: $${listing.price}</p>
-                        <p>Location: ${listing.location}</p>
+                        <p>City: ${listing.city}</p>
                         <p>Address: ${listing.address}</p>
                         <button class="def-btn btn-modal">View More</button>
                     </div>
@@ -114,7 +121,7 @@ function displayListings() {
                         <h2>${listing.title}</h2>
                         <img src="${listing.images[0]}" alt="${listing.title}">
                         <p>Address: ${listing.address}</p>
-                        <p>Location: ${listing.location}</p>
+                        <p>City: ${listing.city}</p>
                         <p>Price: $${listing.price}</p>
                         <p>Description: ${listing.description}</p>
                         <button class="def-btn" id="edit-listing">Edit</button>
@@ -197,14 +204,49 @@ if (imagesInput) {
     });
 }
 
+// Handle form submission
+
+function validateForm() {
+    const isValid = checkValidation();
+    const updateForm = window.location.href.includes("edit");
+    const createForm = window.location.href.includes("create");
+    
+    if (isValid && updateForm) {
+        update();
+    } else if (isValid && createForm) {
+        createListings();
+    } else {
+        alert("Please fill in all fields and upload at least one image.");
+    }
+
+    return false; // prevent default form submission
+}
+
+function checkValidation() {
+    const title = document.querySelector("#title").value.trim();
+    const propertyType = document.querySelector("#property-type").value.trim();
+    const description = document.querySelector("#description").value.trim();
+    const price = document.querySelector("#price").value.trim();
+    const city = document.querySelector("#city").value.trim();
+    const address = document.querySelector("#address").value.trim();
+
+    const requiredFields = [title, propertyType, description, price, city, address];
+
+    const allFilled = requiredFields.every(field => field !== "");
+
+    const hasImages = Array.isArray(imageUrls) && imageUrls.length > 0;
+
+    return allFilled && hasImages;
+}
+
 // Create listings function
 function createListings() {
     let id = uid();
     let title = document.querySelector("#title").value;
-    let listingType = document.querySelector("#property-type").value;
+    let propertyType = document.querySelector("#property-type").value;
     let description = document.querySelector("#description").value;
     let price = document.querySelector("#price").value;
-    let location = document.querySelector("#location").value;
+    let city = document.querySelector("#city").value;
     let address = document.querySelector("#address").value;
     let images = imageUrls
         images = images.map(image => image.trim());
@@ -212,10 +254,10 @@ function createListings() {
     var newListings = {
         id: id,
         title: title,
-        listingType: listingType,
+        propertyType: propertyType,
         description: description,
         price: price,
-        location: location,
+        city: city,
         address: address,
         images: images
     };
@@ -232,31 +274,30 @@ function update() {
     let listingId = parseInt(urlParams.get("id"));
 
     let listings = JSON.parse(localStorage.getItem("listings")) || [];
-    let listing = listings.find(l => l.id === listingId);
+    let index = listings.findIndex(l => l.id === listingId);
 
     let title = document.querySelector("#title").value;
-    let listingType = document.querySelector("#property-type").value;
+    let propertyType = document.querySelector("#property-type").value;
     let description = document.querySelector("#description").value;
     let price = document.querySelector("#price").value;
-    let location = document.querySelector("#location").value;
+    let city = document.querySelector("#city").value;
     let address = document.querySelector("#address").value;
     let images = imageUrls || [];
         images = images.map(image => image.trim());
 
     var updatedListing = {
         title: title,
-        listingType: listingType,
+        propertyType: propertyType,
         description: description,
         price: price,
-        location: location,
+        city: city,
         address: address,
         images: images
     };
 
-    console.log(updatedListing);
+    listings[index] = { ...listings[index], ...updatedListing };
+    localStorage.setItem("listings", JSON.stringify(listings));
+    window.location.href = "listings.html?updated=true";
 
-    // listing[index] = updatedListing;
-    // localStorage.setItem("listings", JSON.stringify(listings));
-
-    // window.location.href = "listings.html";
+    return false;
 }

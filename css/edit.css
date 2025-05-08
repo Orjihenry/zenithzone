@@ -29,6 +29,12 @@
     margin-bottom: 20px;
 }
 
+.form .required {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+}
+
 .form p {
     font-size: 1.2rem;
     margin-bottom: 20px;

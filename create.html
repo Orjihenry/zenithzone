@@ -47,12 +47,13 @@
         <section class="form">
             <form action="#" method="POST" class="create-form">
                 <h1>Add Listings</h1>
+                <p class="required">All fields are required *</p>
                 <div class="form-group"> 
-                    <label for="title">Property Title</label>
+                    <label for="title">Property Title *</label>
                     <input type="text" id="title" name="title" required>
                 </div>
                 <div class="form-group prop-type">
-                    <label for="property-type">Property Type</label>
+                    <label for="property-type">Property Type *</label>
                     <select id="property-type" name="property-type" required>
                         <option value="" disabled selected>Select Property Type</option>
                         <option value="house">House</option>
@@ -61,23 +62,23 @@
                     </select>
                 </div>
                 <div class="form-group"> 
-                    <label for="location">Location</label>
-                    <input type="text" id="location" name="location" required>
+                    <label for="city">City *</label>
+                    <input type="text" id="city" name="city" required>
                 </div>
                 <div class="form-group"> 
-                    <label for="address">Address</label>
+                    <label for="address">Address *</label>
                     <input type="text" id="address" name="address" required>
                 </div>
                 <div class="form-group">
-                    <label for="price">Price</label>
+                    <label for="price">Price *</label>
                     <input type="number" id="price" name="price" required>
                 </div>
                 <div class="form-group">
-                    <label for="bedrooms">Bedrooms</label>
+                    <label for="bedrooms">Bedrooms *</label>
                     <input type="number" id="bedrooms" name="bedrooms" required>
                 </div>
                 <div class="form-group">
-                    <label for="bathrooms">Bathrooms</label>
+                    <label for="bathrooms">Bathrooms *</label>
                     <input type="number" id="bathrooms" name="bathrooms" required>
                 </div>
                 <div class="form-group">
@@ -85,7 +86,7 @@
                     <textarea id="description" name="description" rows="4" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="images">Upload Image</label>
+                    <label for="images">Upload Image *</label>
                     <label class="input-div" for="images">
                         <p>Drag and drop or click to upload</p>
                         <input type="file" id="images" name="images" multiple accept="image/*" required style="display: none;">
@@ -93,7 +94,7 @@
                     <output id="image-preview"></output>
                 </div>
                 <div class="form-group">
-                    <label for="status">Status</label>
+                    <label for="status">Status *</label>
                     <select id="status" name="status" required>
                         <option value="" disabled selected>Select Status</option>
                         <option value="available">Available</option>
@@ -101,11 +102,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="contact">Contact Information</label>
+                    <label for="contact">Contact Information *</label>
                     <input type="text" id="contact" name="contact" required>
                 </div>
                 <div class="form-group" style="display: flex; gap: 20px;">
-                    <button type="button" class="def-btn" onclick="createListings();">Submit</button>
+                    <button type="button" class="def-btn" onclick="validateForm();">Submit</button>
 
                     <button type="button" class="def-btn">Cancel</button>
                 </div>
