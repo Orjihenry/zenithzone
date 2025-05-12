@@ -65,9 +65,104 @@ var listings = [
     bedrooms: 5,
     bathrooms: 4,
     status: 'available',
-    propertyType: "villa",
+    propertyType: "house",
+    contact: "111-222-3333",
+    city: "St. John's",
+    address: "321 Oak St, Cityville, FL 33101",
+    images: [
+        "assets/property.jpg",
+        "villa2.jpg",
+        "villa3.jpg"
+    ]
+},
+{
+    id: 5,
+    title: "Rustic Cabin",
+    description: "A rustic cabin nestled in the woods.",
+    price: 150000,
+    featured: true,
+    bedrooms: 2,
+    bathrooms: 1,
+    status: 'available',
+    propertyType: "house",
+    contact: "444-555-6666",
+    city: "Paradise",
+    address: "987 Pine St, Cityville, CA 12345",
+    images: [
+        "assets/property.jpg",
+        "cabin2.jpg",
+        "cabin3.jpg"
+    ]
+},
+{
+    id: 6,
+    title: "Luxury Villa",
+    description: "A luxurious villa with a private pool.",
+    price: 1000000,
+    featured: false,
+    bedrooms: 5,
+    bathrooms: 4,
+    status: 'available',
+    propertyType: "house",
     contact: "111-222-3333",
     city: "Mount Pearl",
+    address: "321 Oak St, Cityville, FL 33101",
+    images: [
+        "assets/property.jpg",
+        "villa2.jpg",
+        "villa3.jpg"
+    ]
+},
+{
+    id: 7,
+    title: "Minimalist Apartment",
+    description: "A minimalist apartment in the city.",
+    price: 150000,
+    featured: false,
+    bedrooms: 2,
+    bathrooms: 1,
+    status: 'available',
+    propertyType: "apartment",
+    contact: "444-555-6666",
+    city: "Paradise",
+    address: "987 Pine St, Cityville, CA 12345",
+    images: [
+        "assets/property.jpg",
+        "cabin2.jpg",
+        "cabin3.jpg"
+    ]
+},
+{
+    id: 8,
+    title: "Cozy Cottage",
+    description: "A charming cottage in the countryside.",
+    price: 200000,
+    featured: true,
+    bedrooms: 3,
+    bathrooms: 2,
+    status: 'available',
+    propertyType: "condo",
+    contact: "555-555-5555",
+    city: "St. John's",
+    address: "789 Maple St, Cityville, VT 05601",
+    images: [
+        "assets/property.jpg",
+        "cottage2.jpg",
+        "cottage3.jpg"
+    ]
+},
+{
+    id: 9,
+    title: "Beachfront Villa",
+    description: "A luxurious villa with a private beachfront.",
+    price: 1200000,
+    featured: false,
+    bedrooms: 5,
+    bathrooms: 4,
+    status: 'available',
+    propertyType: "house",
+    contact: "111-222-3333",
+    city: "St. John's",
     address: "321 Oak St, Cityville, FL 33101",
     images: [
         "assets/property.jpg",
