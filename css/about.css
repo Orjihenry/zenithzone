@@ -69,12 +69,12 @@ hr {
     background-color: black;
 }
 
-ul {
+.values-list {
     list-style-type: none;
     padding: 0;
 }
 
-li {
+.values-list li {
     font-size: 1.2rem;
     padding: 8px;
 }
@@ -125,10 +125,10 @@ p {
     p {
         font-size: 1rem;
     }
-    li {
+    .values-list li {
         font-size: 1rem;
     }
-    li::before {
+    .values-list li::before {
         font-size: 1rem;
     }
 }

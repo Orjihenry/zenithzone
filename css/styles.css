@@ -330,6 +330,10 @@ img {
         font-size: var(--mobile-font-size);
     }
 
+    .nav li {
+        margin: 25px 0 !important;
+    }
+
     .hero {
         margin-top: 100px;
     }
