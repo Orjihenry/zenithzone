@@ -2,41 +2,6 @@
     width: 33.5%;
 }
 
-.properties {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(auto-fill, 1fr);
-    gap: var(--grid-gap);
-    align-items: center;
-    justify-items: center;
-    padding: 5%;
-    width: 100%;
-}
-
-.prop-details {
-    background: var(--linear-background);
-    padding: 20px;
-}
-
-.prop-details .def-btn {
-    margin-top: 3.5% !important;
-}
-
-.extras-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 1fr;
-    gap: var(--grid-gap);
-    align-items: center;
-    justify-items: center;
-    padding: 10px 0;
-}
-
-.nav-item {
-    cursor: pointer;
-    padding: 2%;
-}
-
 .slider {
     width: 100%;
     padding-left: 5%;
@@ -56,6 +21,48 @@
     height: 100vh;
 }
 
+.properties {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(auto-fill, 1fr);
+    gap: var(--grid-gap);
+    align-items: center;
+    justify-items: center;
+    padding: 5%;
+    width: 100%;
+}
+
+.prop-details {
+    background: var(--linear-background);
+}
+
+.prop-info {
+    padding: 20px;
+}
+
+.prop-info h3 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.prop-details .def-btn {
+    margin-top: 3.5% !important;
+}
+
+.non-featured {
+    display: none !important;
+}
+
+.extras-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: var(--grid-gap);
+    align-items: center;
+    justify-items: center;
+    padding: 10px 0;
+}
+
 h1 {
     font-size: 3rem;
 }
@@ -64,7 +71,7 @@ h2 {
     font-size: 1.7rem;
 }
 
-.featured h2 {
+.filter-section h2 {
     position: relative;
     background-color: #222222;
     margin: auto;
@@ -81,8 +88,20 @@ h2 {
     z-index: .5;
 }
 
-.property img {
+.no-listings {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10%;
+    padding: 5%;
+}
+
+img {
     width: 100%;
+    height: auto;
+    border-radius: 10px;
     object-fit: cover;
 }
 

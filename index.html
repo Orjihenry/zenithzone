@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Zenith Zone Realty</title>
 </head>
-<body>
+<body onload="displayListings();">
 
     <header class="header">
         <nav class="navbar">
@@ -67,10 +67,10 @@
     </header>
 
     <main>
-        <section class="featured">
+        <section class="filter-section">
             <h2>Featured Listings</h2>
             <div class="filter">
-                <select name="category" id="category">
+                <select name="category" id="category" onchange="filterByCategory(event)">
                     <option value="all">All Listings</option>
                     <option value="residential">Residential</option>
                     <option value="commercial">Commercial</option>
@@ -78,76 +78,25 @@
                     <option value="office">Office Space</option>
                     <option value="warehouse">Warehouse</option>
                 </select>
-                <select name="location" id="location">
+                <select name="location" id="location" onchange="filterByLocation(event)">
                     <option value="all">All Locations</option>
-                    <option value="city1">St. John's</option>
-                    <option value="city2">Mount Pearl</option>
-                    <option value="city3">Paradise</option>
-                    <option value="city4">Goulds</option>
-                    <option value="city4">Bay Bulls</option>
-                    <option value="city4">Conception Bay South</option>
+                    <option value="St. John's">St. John's</option>
+                    <option value="Mount Pearl">Mount Pearl</option>
+                    <option value="Paradise">Paradise</option>
+                    <option value="Goulds">Goulds</option>
+                    <option value="Bay Bulls">Bay Bulls</option>
+                    <option value="Conception Bay South">Conception Bay South</option>
                 </select>
+                <input type="search" id="featuredInput" name="search" value="featured" hidden>
             </div>
-            <div class="properties">
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 2">
-                    <div class="prop-details">
-                        <h3>Property 2</h3>
-                        <p>Address: 456 Elm St, City</p>
-                        <p>Price: $800,000</p>
-                        <button class="def-btn">See more</button>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 3">
-                    <div class="prop-details">
-                        <h3>Property 3</h3>
-                        <p>Address: 789 Oak St, City</p>
-                        <p>Price: $1,500,000</p>
-                        <button class="def-btn">See more</button>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 3">
-                    <div class="prop-details">
-                        <h3>Property 3</h3>
-                        <p>Address: 789 Oak St, City</p>
-                        <p>Price: $1,500,000</p>
-                        <button class="def-btn">See more</button>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 1">
-                    <div class="prop-details">
-                        <h3>Property 1</h3>
-                        <p>Address: 123 Main St, City</p>
-                        <p>Price: $1,000,000</p>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 2">
-                    <div class="prop-details">
-                        <h3>Property 2</h3>
-                        <p>Address: 456 Elm St, City</p>
-                        <p>Price: $800,000</p>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 3">
-                    <div class="prop-details">
-                        <h3>Property 3</h3>
-                        <p>Address: 789 Oak St, City</p>
-                        <p>Price: $1,500,000</p>
-                    </div>
-                </div>
-                <div class="property">
-                    <img src="assets/property.jpg" alt="Property 3">
-                    <div class="prop-details">
-                        <h3>Property 3</h3>
-                        <p>Address: 789 Oak St, City</p>
-                        <p>Price: $1,500,000</p>
-                    </div>
-                </div>
+        </section>
+        <section class="featured">
+            <div class="properties" id="listings">
+                
+            </div>
+            <div class="no-listings">
+                <h2 style="width: 100%; text-align: center;">No Listings Available</h2>
+                <p style="width: 100%; text-align: center;">Please check back later.</p>
             </div>
         </section>
         
@@ -223,29 +172,9 @@
     <footer class="footer">
         <small>&copy; 2023 Zenith Zone Realty. All rights reserved.</small>
     </footer>
-    
-    <script>
 
-        var modal = document.getElementById("myModal");
-        
-        var btn = document.getElementById("myBtn");
-        
-        var span = document.getElementsByClassName("close")[0];
-        
-        btn.onclick = function() {
-          modal.style.display = "block";
-        }
-        
-        span.onclick = function() {
-          modal.style.display = "none";
-        }
-        
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
-    </script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/filter.js"></script>
 
 </body>
 </html>
