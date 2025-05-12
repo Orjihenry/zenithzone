@@ -23,7 +23,7 @@ var listings = [
     title: "Modern Apartment",
     description: "A sleek modern apartment in the city.",
     price: 300000,
-    featured: true,
+    featured: false,
     bedrooms: 2,
     bathrooms: 1,
     status: 'available',
@@ -98,7 +98,7 @@ function displayListings() {
         listings.forEach((listing) => {
             // Build HTML structure
             let html = `
-            <div class="property" id="details">
+            <div class="property ${listing.featured ? "featListing" : "non-featured"}" id="details">
                 <div class="prop-details" data-id="${listing.id}">
                     <img src="${listing.images[0]}" alt="${listing.title}" class="btn-modal">
                     <div class="prop-info">
