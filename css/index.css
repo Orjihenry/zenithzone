@@ -98,13 +98,6 @@ h2 {
     padding: 5%;
 }
 
-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
 .filter {
     float: right;
     padding: 10px;

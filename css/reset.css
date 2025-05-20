@@ -35,6 +35,7 @@ select {
     text-decoration: none;
     scroll-behavior: smooth;
     vertical-align: baseline;
+    list-style: none;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }

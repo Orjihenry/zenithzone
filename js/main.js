@@ -14,8 +14,8 @@ var listings = [
     address: "456 Elm St, Cityville, CA 12345",
     images: [
         "assets/property.jpg",
-        "beach-house2.jpg",
-        "beach-house3.jpg"
+        "assets/hero.jpg",
+        "assets/trust.jpg"
     ]
 },
 {
@@ -224,25 +224,57 @@ function displayListings() {
         button.addEventListener("click", (e) => {
             let id = parseInt(e.target.closest(".prop-details").dataset.id);
             let listing = listings.find(listing => listing.id === id);
+            let imageUrls = listing.images;
             if (listing) {
                 modalDialog.style.display = "block";
                 modalDialog.innerHTML = `
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <h2>${listing.title}</h2>
-                        <img src="${listing.images[0]}" alt="${listing.title}">
-                        <p>Address: ${listing.address}</p>
-                        <p>City: ${listing.city}</p>
-                        <p>Price: $${listing.price}</p>
-                        <p>Bedrooms: ${listing.bedrooms}</p>
-                        <p>Bathrooms: ${listing.bathrooms}</p>
-                        <p>Contact: ${listing.contact}</p>
-                        <p>Property Type: ${listing.propertyType}</p>
-                        <p>Description: ${listing.description}</p>
+                        <div class="image-container">
+                            <ul class="modal-images">
+                                ${imageUrls.map(imageUrl => `<li><img src="${imageUrl}" onerror="this.onerror=null; this.src='assets/rental.jpg'" alt="${listing.title}" class="inactive"></li>`).join("")}
+                            </ul>
+                            <button class="btn-prev prev">‹</button>
+                            <button class="btn-next next">›</button>
+                        </div>
+                        <p><span>Address:</span> ${listing.address}</p>
+                        <p><span>City:</span> ${listing.city}</p>
+                        <p><span>Price:</span> $Price: $${listing.price}</p>
+                        <p><span>Bedrooms:</span> ${listing.bedrooms}</p>
+                        <p><span>Bathrooms:</span> ${listing.bathrooms}</p>
+                        <p><span>Contact:</span> ${listing.contact}</p>
+                        <p><span>Property Type:</span> ${listing.propertyType}</p>
+                        <p><span>Description:</span> ${listing.description}</p>
                         <button class="def-btn" id="edit-listing">Edit</button>
                         <button class="def-btn" id="delete-listing">Delete</button>
                     </div>
                 `;
+
+                const carouselContainer = modalDialog.querySelector(".image-container");
+                const modalImages = modalDialog.querySelectorAll(".modal-images li");
+                const imageList = modalDialog.querySelectorAll(".modal-images");
+                const prevButton = modalDialog.querySelector(".btn-prev");
+                const nextButton = modalDialog.querySelector(".btn-next");
+
+                let currentIndex = 0;
+                updateCarousel();
+
+                prevButton.addEventListener("click", () => {
+                    currentIndex = (currentIndex - 1 + modalImages.length) % modalImages.length;
+                    updateCarousel();
+                });
+
+                nextButton.addEventListener("click", () => {
+                    currentIndex = (currentIndex + 1) % modalImages.length;
+                    updateCarousel();
+                });
+
+                function updateCarousel() {
+                    modalImages.forEach((image, index) => {
+                        image.style.display = index === currentIndex ? "flex" : "none";
+                    });
+                }
 
                 const closeButton = modalDialog.querySelector(".close");
                 closeButton.addEventListener("click", () => {

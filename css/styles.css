@@ -113,6 +113,51 @@ img {
     margin-bottom: 15px;
 }
 
+/* Modal Styling */
+
+.image-container {
+    position: relative;
+    margin: 1rem auto;
+}
+
+.modal-images li {
+    display: flex;
+}
+
+.btn-prev,
+.btn-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 4px;
+}
+
+.btn-prev {
+    left: 10px;
+}
+
+.btn-next {
+    right: 10px;
+}
+
+.modal-content p {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: #333333 1px solid;
+}
+
+.modal-content p span {
+    font-weight: bold;
+    font-style: italic;
+}
+
 .community {
     width: 100%;
     background: var(--linear-background);
