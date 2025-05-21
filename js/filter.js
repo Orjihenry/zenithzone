@@ -41,7 +41,6 @@ function filterByLocation(event) {
     let changeTarget = document.querySelectorAll("#details");
 
     changeTarget.forEach( (target) => {
-        // console.log(changeVal);
         target.style.display = "revert";
         if (changeVal === "all") {
             return;
@@ -63,4 +62,15 @@ function filterByLocation(event) {
         noListings.style.display = "none";
     }
     
+}
+
+// Combine filter functions
+function filter(event) {
+    var nameFilter = filterByName(event);
+    var locationFilter = filterByLocation(event);
+
+    if (!nameFilter && !locationFilter) {
+        return true;
+    }
+    return false;
 }
