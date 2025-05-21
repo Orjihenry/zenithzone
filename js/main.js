@@ -441,7 +441,7 @@ function checkValidation() {
     return allFilled && hasImages;
 }
 
-// Create listings function
+// Create listings function here
 function createListings() {
     let id = uid();
     let title = document.querySelector("#title").value;
