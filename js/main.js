@@ -172,6 +172,8 @@ var listings = [
 }
 ];
 
+var viewedListings = [];
+
 var storedListings = JSON.parse(localStorage.getItem("listings"));
 if (storedListings && storedListings.length > 0) {
     listings = storedListings;
@@ -216,7 +218,6 @@ function displayListings() {
     
     // Add event listeners to the buttons
     const modalDialog = document.querySelector(".modal");
-    const button = document.querySelector(".btn-modal");
     const buttons = document.querySelectorAll(".btn-modal");
 
     // Open modal dialog
@@ -251,9 +252,7 @@ function displayListings() {
                     </div>
                 `;
 
-                const carouselContainer = modalDialog.querySelector(".image-container");
                 const modalImages = modalDialog.querySelectorAll(".modal-images li");
-                const imageList = modalDialog.querySelectorAll(".modal-images");
                 const prevButton = modalDialog.querySelector(".btn-prev");
                 const nextButton = modalDialog.querySelector(".btn-next");
 
@@ -300,6 +299,58 @@ function displayListings() {
             });
         });
     });
+}
+
+function trackViewedListings() {
+    let buttons = document.querySelectorAll(".btn-modal");
+
+    let recentlyViewed = JSON.parse(localStorage.getItem("viewedListings")) || [];
+
+    buttons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            let id = parseInt(e.target.closest(".prop-details")?.dataset?.id);
+            let listing = listings.find(listing => listing.id === id);
+
+            if (!listing) return;
+
+            recentlyViewed = recentlyViewed.filter(item => item.id !== listing.id);
+
+            recentlyViewed.unshift(listing);
+
+            if (recentlyViewed.length > 3) {
+                recentlyViewed = recentlyViewed.slice(0, 3);
+            }
+
+            localStorage.setItem("viewedListings", JSON.stringify(recentlyViewed));
+
+            window.recentlyViewed = recentlyViewed;
+        });
+    });
+
+    const container = document.querySelector(".recently-viewed");
+    if (!container || recentlyViewed.length === 0) return;
+
+    container.innerHTML = ""; // Clear old content
+
+    recentlyViewed.forEach(listing => {
+        let html = `
+        <div class="property ${listing.featured ? "featListing" : "non-featured"}" id="details">
+            <div class="prop-details" data-id="${listing.id}">
+                <img src="${listing.images[0]}" alt="${listing.title}" class="btn-modal">
+                <div class="prop-info">
+                    <h3>${listing.title}</h3>
+                    <p>Price: $${listing.price}</p>
+                    <p>City: ${listing.city}</p>
+                    <p>Address: ${listing.address}</p>
+                    <button class="def-btn btn-modal">View More</button>
+                </div>
+            </div>
+        </div>
+        `;
+        container.innerHTML += html;
+    });
+
+    console.log(container);
 }
 
 // Preview images function

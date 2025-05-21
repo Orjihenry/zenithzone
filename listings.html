@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/listings.css">
     <title>Listeings - Zenith Zone Realty</title>
 </head>
-<body  onload="displayListings();">
+<body  onload="displayListings(); trackViewedListings();">
     <header class="header">
         <nav class="navbar">
 
@@ -82,7 +82,7 @@
 
         <section class="recent">
             <h2>Recently Viewed</h2>
-            <div class="properties">
+            <div class="properties recently-viewed">
                 <div class="property">
                     <div class="prop-details">
                         <img src="assets/property.jpg" alt="Property 1">
