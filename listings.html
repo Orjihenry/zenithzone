@@ -45,19 +45,15 @@
     </header>
     <main>
         <section class="filter-section">
-            <form action="#" method="get">
-                <h2>Browse Listings</h2>
-                <input type="search" name="search" placeholder="Search by address, city, or zip code" oninput="filterByName(event)">
-                <button type="submit" class="def-btn">Search</button>
-            </form>
+            <h2>Browse Listings</h2>
             <div class="filter">
                 <select name="category" id="category" onchange="filterByCategory(event)">
                     <option value="all">All Listings</option>
-                    <option value="residential">Residential</option>
-                    <option value="commercial">Commercial</option>
-                    <option value="land">Lands/Plots</option>
-                    <option value="office">Office Space</option>
-                    <option value="warehouse">Warehouse</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="House">House</option>
+                    <option value="Condo">Condo</option>
+                    <option value="Cottage">Cottage</option>
+                    <option value="Commercial">Commercial</option>
                 </select>
                 <select name="location" id="location" onchange="filterByLocation(event)">
                     <option value="all">All Locations</option>
@@ -69,6 +65,7 @@
                     <option value="Conception Bay South">Conception Bay South</option>
                 </select>
             </div>
+            <input type="search" name="search" placeholder="Search by address, city, or zip code" oninput="filterByName(event)">
         </section>
         
         <section class="featured">
@@ -80,7 +77,7 @@
             </div>
         </section>
 
-        <section class="recent">
+        <section class="recent" data-exclude="true">
             <h2>Recently Viewed</h2>
             <div class="properties recently-viewed">
             </div>

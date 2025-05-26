@@ -7,7 +7,11 @@ function filterByName(event) {
     let inputTarget = document.querySelectorAll("#details");
 
     inputTarget.forEach( (item) => {
+        let excludes = document.querySelectorAll(".recent");
         item.style.display = "revert";
+        if (item.closest(".recent") && item.closest(".recent").dataset.exclude === excludes.dataset.exclude) {
+            return;
+        }
         if (!item.innerText.toLowerCase().includes(inputVal)) {
             item.style.display = "none";
         }
@@ -31,6 +35,36 @@ function filterByName(event) {
 }
 
 function filterByCategory(event) {
+    let noItem = false;
+    let changeVal = event.target.value;
+    const noListings = document.querySelector(".no-listings");
+    let changeTarget = document.querySelectorAll("#details");
+
+    changeTarget.forEach( (target) => {
+        let excludes = document.querySelectorAll(".recent");
+        target.style.display = "revert";
+        if (target.closest(".recent") && target.closest(".recent").dataset.exclude === excludes.dataset.exclude) {
+            return;
+        }
+        if (changeVal === "all") {
+            return;
+        }
+        if (!target.innerText.includes(changeVal)) {
+            target.style.display = "none";
+        }
+    });
+
+    changeTarget.forEach( (target) => {
+        if (target.style.display === "revert") {
+            noItem = true;
+        }
+    });
+    if (!noItem) {
+        noListings.style.display = "block";
+    }
+    else {
+        noListings.style.display = "none";
+    }
     console.log(event.target.value);
 }
 
@@ -41,7 +75,11 @@ function filterByLocation(event) {
     let changeTarget = document.querySelectorAll("#details");
 
     changeTarget.forEach( (target) => {
+        let excludes = document.querySelectorAll(".recent");
         target.style.display = "revert";
+        if (target.closest(".recent") && target.closest(".recent").dataset.exclude === excludes.dataset.exclude) {
+            return;
+        }
         if (changeVal === "all") {
             return;
         }
@@ -68,8 +106,9 @@ function filterByLocation(event) {
 function filter(event) {
     var nameFilter = filterByName(event);
     var locationFilter = filterByLocation(event);
+    var categoryFilter = filterByCategory(event);
 
-    if (!nameFilter && !locationFilter) {
+    if (!nameFilter && !locationFilter && !categoryFilter) {
         return true;
     }
     return false;

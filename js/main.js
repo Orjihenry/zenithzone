@@ -160,7 +160,7 @@ var listings = [
     bedrooms: 5,
     bathrooms: 4,
     status: 'available',
-    propertyType: "house",
+    propertyType: "cottage",
     contact: "111-222-3333",
     city: "St. John's",
     address: "321 Oak St, Cityville, FL 33101",

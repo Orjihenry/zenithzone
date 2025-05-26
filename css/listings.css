@@ -41,6 +41,7 @@ h2 {
 }
 
 .filter-section input {
+    width: 50%;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
@@ -109,9 +110,11 @@ h2 {
         grid-template-columns: repeat(1, 1fr);
         gap: var(--grid-gap);
         align-items: center;
-        justify-items: center;
         margin-top: 30%;
         padding: 5%;
     }
-
+    
+    .filter-section input {
+        width: 100%;
+    }
 }
