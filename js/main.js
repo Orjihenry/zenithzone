@@ -303,16 +303,16 @@ function displayListings() {
 
 function trackViewedListings() {
     let buttons = document.querySelectorAll(".btn-modal");
-
-    let recentlyViewed = JSON.parse(localStorage.getItem("viewedListings")) || [];
-
+    
     buttons.forEach(button => {
         button.addEventListener("click", (e) => {
             let id = parseInt(e.target.closest(".prop-details")?.dataset?.id);
             let listing = listings.find(listing => listing.id === id);
-
+            
             if (!listing) return;
 
+            let recentlyViewed = JSON.parse(localStorage.getItem("viewedListings")) || [];
+            
             recentlyViewed = recentlyViewed.filter(item => item.id !== listing.id);
 
             recentlyViewed.unshift(listing);
@@ -323,11 +323,16 @@ function trackViewedListings() {
 
             localStorage.setItem("viewedListings", JSON.stringify(recentlyViewed));
 
-            window.recentlyViewed = recentlyViewed;
+            renderRecentlyViewed(recentlyViewed);
         });
     });
+    
+}
 
+
+function renderRecentlyViewed(recentlyViewed = JSON.parse(localStorage.getItem("viewedListings")) || []) {
     const container = document.querySelector(".recently-viewed");
+    var noListings = document.querySelector(".no-recent-listings");
     if (!container || recentlyViewed.length === 0) return;
 
     container.innerHTML = ""; // Clear old content
@@ -350,7 +355,9 @@ function trackViewedListings() {
         container.innerHTML += html;
     });
 
-    console.log(container);
+    let viewedListings = JSON.parse(localStorage.getItem("viewedListings")) || [];
+
+    noListings.style.display =viewedListings.length === 0 ? "block" : "none";
 }
 
 // Preview images function

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/listings.css">
     <title>Listeings - Zenith Zone Realty</title>
 </head>
-<body  onload="displayListings(); trackViewedListings();">
+<body  onload="displayListings(); trackViewedListings(); renderRecentlyViewed();">
     <header class="header">
         <nav class="navbar">
 
@@ -83,36 +83,9 @@
         <section class="recent">
             <h2>Recently Viewed</h2>
             <div class="properties recently-viewed">
-                <div class="property">
-                    <div class="prop-details">
-                        <img src="assets/property.jpg" alt="Property 1">
-                        <div class="prop-info">
-                            <h3>Property 1</h3>
-                            <p>Address: 123 Main St, City</p>
-                            <p>Price: $1,000,000</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="property">
-                    <div class="prop-details">
-                        <img src="assets/property.jpg" alt="Property 2">
-                        <div class="prop-info">
-                            <h3>Property 2</h3>
-                            <p>Address: 456 Elm St, City</p>
-                            <p>Price: $800,000</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="property">
-                    <div class="prop-details">
-                        <img src="assets/property.jpg" alt="Property 3">
-                        <div class="prop-info"></div>
-                            <h3>Property 3</h3>
-                            <p>Address: 789 Oak St, City</p>
-                            <p>Price: $1,500,000</p>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="no-recent-listings">
+                <h2 style="text-align: center; padding-bottom: 10%;">No Recent Listings</h2>
             </div>
         </section>
 
