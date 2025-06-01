@@ -7,9 +7,9 @@ function filterByName(event) {
     let inputTarget = document.querySelectorAll("#details");
 
     inputTarget.forEach( (item) => {
-        let excludes = document.querySelectorAll(".recent");
+        const recentSection = target.closest(".recent");
         item.style.display = "revert";
-        if (item.closest(".recent") && item.closest(".recent").dataset.exclude === excludes.dataset.exclude) {
+        if (recentSection && recentSection.dataset.exclude === "true") {
             return;
         }
         if (!item.innerText.toLowerCase().includes(inputVal)) {
@@ -41,9 +41,9 @@ function filterByCategory(event) {
     let changeTarget = document.querySelectorAll("#details");
 
     changeTarget.forEach( (target) => {
-        let excludes = document.querySelectorAll(".recent");
+        const recentSection = target.closest(".recent");
         target.style.display = "revert";
-        if (target.closest(".recent") && target.closest(".recent").dataset.exclude === excludes.dataset.exclude) {
+        if (recentSection && recentSection.dataset.exclude === "true") {
             return;
         }
         if (changeVal === "all") {
@@ -65,7 +65,6 @@ function filterByCategory(event) {
     else {
         noListings.style.display = "none";
     }
-    console.log(event.target.value);
 }
 
 function filterByLocation(event) {
@@ -73,11 +72,12 @@ function filterByLocation(event) {
     let changeVal = event.target.value;
     const noListings = document.querySelector(".no-listings");
     let changeTarget = document.querySelectorAll("#details");
+    
 
     changeTarget.forEach( (target) => {
-        let excludes = document.querySelectorAll(".recent");
+        const recentSection = target.closest(".recent");
         target.style.display = "revert";
-        if (target.closest(".recent") && target.closest(".recent").dataset.exclude === excludes.dataset.exclude) {
+        if (recentSection && recentSection.dataset.exclude === "true") {
             return;
         }
         if (changeVal === "all") {
