@@ -1,7 +1,3 @@
-.slider p {
-    width: 55.5%;
-}
-
 .slider {
     width: 100%;
     padding-left: 5%;
@@ -71,10 +67,10 @@
     display: block;
     border-width: 1px;
     border-style: solid;
-    border-color: rgb(232, 110, 208);
+    border-color: var(--primary-color);
     border-image: initial;
     border-radius: 50%;
-    background: rgb(232, 110, 208);
+    background: var(--primary-color);
     margin: 0px auto;
 }
 
@@ -89,7 +85,6 @@
     animation: pulseDown 2s infinite;
 }
 
-/* Keyframe animation */
 @keyframes pulseDown {
     0% {
         transform: translate(-50%, -50%) scale(1);
@@ -103,6 +98,46 @@
         transform: translate(-50%, -50%) scale(1);
         opacity: 1;
     }
+}
+
+.howit-works {
+    margin: 10% auto;
+}
+
+.top-section {
+    text-align: center;
+}
+
+.top-section h2 {
+    text-transform: capitalize;
+}
+
+.subheading {
+    position: relative;
+}
+
+.subheading::before {
+    position: absolute;
+    top: 50%;
+    right: -60px;
+    content: "";
+    transform: translateY(-50%);
+    width: 50px;
+    height: 1px;
+    margin-top: -1px;
+    background: rgb(232, 110, 208);
+}
+
+.subheading::after {
+    position: absolute;
+    top: 50%;
+    left: -60px;
+    content: "";
+    transform: translateY(-50%);
+    width: 50px;
+    height: 1px;
+    margin-top: -1px;
+    background: rgb(232, 110, 208);
 }
 
 .properties {
@@ -148,28 +183,44 @@
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: var(--h1-size);
+    line-height: 1.1;
+    font-weight: var(--font-weight);
 }
 
 h2 {
-    font-size: 1.7rem;
+    font-size: var(--h2-size);
+    font-weight: var(--font-weight);
+    margin: 20px 0px;
 }
 
-.filter-section h2 {
+.slider p {
+    width: 55.5%;
+    font-weight: var(--font-weight);
+    line-height: 1.3;
+}
+
+.featured h2 {
     position: relative;
-    background-color: #222222;
     margin: auto;
-    margin-top: 10%;
-    padding: 10px 20px;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 600;
-    border: solid 1px #222222;
-    border-radius: 14.7px;
-    width: max-content;
-    white-space: nowrap;
+    padding: 20px;
+    padding-bottom: 44px;
+    font-size: var(--h2-size);
+    font-weight: var(--font-weight);
     text-align: center;
-    z-index: .5;
+}
+
+.featured h2::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 5px;
+    width: 80px;
+    background: #2cbdb8;
+    content: "";
+    margin: 0 auto;
+    margin-top: 10px;
 }
 
 .no-listings {
