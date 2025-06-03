@@ -185,6 +185,10 @@ let highestId = listings.reduce((max, listing) => Math.max(max, listing.id), 0);
 
 const uid = (() => {let id = highestId + 1; return () => id++;})();
 
+
+const priceFormat = new Intl.NumberFormat('en-US');
+let price = priceFormat.format(listings.price);
+
 // Gets the listings container element
 var listingsContainer = document.getElementById("listings");
 
@@ -193,6 +197,8 @@ function displayListings() {
 
     if (listings.length > 0) {
         listings.forEach((listing) => {
+            const priceFormat = new Intl.NumberFormat('en-US');
+            let price = priceFormat.format(listing.price);
             // Build HTML structure
             let html = `
             <div class="property ${listing.featured ? "featListing" : "non-featured"}" id="details">
@@ -200,7 +206,7 @@ function displayListings() {
                     <img src="${listing.images[0]}" alt="${listing.title}" class="btn-modal">
                     <div class="prop-info">
                         <h3>${listing.title}</h3>
-                        <p>Price: $${listing.price}</p>
+                        <p>Price: $${price}</p>
                         <p>City: ${listing.city}</p>
                         <p>Address: ${listing.address}</p>
                         <button class="def-btn btn-modal">View More</button>
@@ -228,6 +234,8 @@ function displayListings() {
             let imageUrls = listing.images;
             if (listing) {
                 modalDialog.style.display = "block";
+                const priceFormat = new Intl.NumberFormat('en-US');
+                let price = priceFormat.format(listing.price);
                 modalDialog.innerHTML = `
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -239,16 +247,24 @@ function displayListings() {
                             <button class="btn-prev prev">‹</button>
                             <button class="btn-next next">›</button>
                         </div>
-                        <p><span>Address:</span> ${listing.address}</p>
-                        <p><span>City:</span> ${listing.city}</p>
-                        <p><span>Price:</span> $Price: $${listing.price}</p>
-                        <p><span>Bedrooms:</span> ${listing.bedrooms}</p>
-                        <p><span>Bathrooms:</span> ${listing.bathrooms}</p>
-                        <p><span>Contact:</span> ${listing.contact}</p>
-                        <p><span>Property Type:</span> ${listing.propertyType}</p>
-                        <p><span>Description:</span> ${listing.description}</p>
-                        <button class="def-btn" id="edit-listing">Edit</button>
-                        <button class="def-btn" id="delete-listing">Delete</button>
+                        <div class="features">
+                            <div class="left-features">
+                                <p><span>Address:</span> ${listing.address}</p>
+                                <p><span>City:</span> ${listing.city}</p>
+                                <p><span>Price:</span> $${price}</p>
+                                <p><span>Bedrooms:</span> ${listing.bedrooms}</p>
+                                <p><span>Bathrooms:</span> ${listing.bathrooms}</p>
+                                <p><span>Contact:</span> ${listing.contact}</p>
+                            </div>
+                            <div class="right-description">
+                                <p><span>Type:</span> ${listing.propertyType}</p>
+                                <p><span class="listing-overwiew">Overview:</span> ${listing.description} Plenty Eplanation for the overview part to see how e go display for page</p>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="def-btn" id="edit-listing">Edit</button>
+                            <button class="def-btn" id="delete-listing">Delete</button>
+                        </div>
                     </div>
                 `;
 
@@ -357,7 +373,7 @@ function renderRecentlyViewed(recentlyViewed = JSON.parse(localStorage.getItem("
 
     let viewedListings = JSON.parse(localStorage.getItem("viewedListings")) || [];
 
-    noListings.style.display =viewedListings.length === 0 ? "block" : "none";
+    noListings.style.display = viewedListings.length === 0 ? "block" : "none";
 }
 
 // Preview images function
