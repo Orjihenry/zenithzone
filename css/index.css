@@ -11,14 +11,98 @@
     justify-content: center;
     align-items: start;
     color: white;
-    text-align: laft;
+    text-align: left;
     font-weight: 600;
     background-image: url('../assets/keys.jpg');
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
-    height: 100vh;
+    background-attachment: fixed;
+    height: 90vh;
+}
+
+.slider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -30px;
+    overflow: visible;
+    width: 50%;
+    height: 70px;
+    z-index: 1;
+    -webkit-transform: skewY(4deg);
+    -moz-transform: skewY(4deg);
+    -ms-transform: skewY(4deg);
+    -o-transform: skewY(4deg);
+    transform: skewY(4deg);
+    background-color: #fff;
+}
+
+.slider::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    overflow: visible;
+    width: 50%;
+    height: 70px;
+    z-index: 1;
+    -webkit-transform: skewY(-4deg);
+    -moz-transform: skewY(-4deg);
+    -ms-transform: skewY(-4deg);
+    -o-transform: skewY(-4deg);
+    transform: skewY(-4deg);
+    background-color: #fff;
+}
+
+.mouse {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: -20px;
+    z-index: 2;
+}
+
+.mouse-icon {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(232, 110, 208);
+    border-image: initial;
+    border-radius: 50%;
+    background: rgb(232, 110, 208);
+    margin: 0px auto;
+}
+
+.mouse-icon::before {
+    content: "↓";
+    font-size: 1.2rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseDown 2s infinite;
+}
+
+/* Keyframe animation */
+@keyframes pulseDown {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -40%) scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
 }
 
 .properties {
@@ -75,7 +159,7 @@ h2 {
     position: relative;
     background-color: #222222;
     margin: auto;
-    margin-top: -25px;
+    margin-top: 10%;
     padding: 10px 20px;
     color: white;
     font-size: 1.5rem;
