@@ -190,7 +190,6 @@
 .properties {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(auto-fill, 1fr);
     gap: var(--grid-gap);
     align-items: center;
     justify-items: center;
