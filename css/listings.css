@@ -1,9 +1,3 @@
-h2 {
-    font-size: 1.5em;
-    font-weight: 600;
-    padding-bottom: 10px;
-}
-
 .properties {
     display: grid;
     grid-template-columns: repeat(3, minmax(300px, 1fr));

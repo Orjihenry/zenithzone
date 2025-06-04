@@ -13,9 +13,9 @@ var listings = [
     city: "Mount Pearl",
     address: "456 Elm St, Cityville, CA 12345",
     images: [
-        "assets/property.jpg",
-        "assets/hero.jpg",
-        "assets/trust.jpg"
+        "assets/dump/beach-house.jpg",
+        "assets/dump/beach-house-interior-2.jpg",
+        "assets/dump/beach-house-4.jpg"
     ]
 },
 {
@@ -32,9 +32,9 @@ var listings = [
     city: "Paradise",
     address: "123 Main St, Cityville, NY 10001",
     images: [
-        "assets/property.jpg",
-        "apartment2.jpg",
-        "apartment3.jpg"
+        "assets/dump/house-3.jpg",
+        "assets/dump/house-2.jpg",
+        "assets/dump/house-1.jpg"
     ]
 },
 {
@@ -51,9 +51,9 @@ var listings = [
     city: "Paradise",
     address: "789 Maple St, Cityville, VT 05601",
     images: [
-        "assets/property.jpg",
-        "cottage2.jpg",
-        "cottage3.jpg"
+        "assets/dump/cottage-2.jpg",
+        "assets/dump/cottage-1.jpg",
+        "assets/dump/cottage-3.jpg"
     ]
 },
 {
@@ -70,9 +70,9 @@ var listings = [
     city: "St. John's",
     address: "321 Oak St, Cityville, FL 33101",
     images: [
-        "assets/property.jpg",
-        "villa2.jpg",
-        "villa3.jpg"
+        "assets/dump/villa-2.jpg",
+        "assets/dump/villa-interior.jpg",
+        "assets/dump/villa-5.jpg"
     ]
 },
 {
@@ -89,9 +89,9 @@ var listings = [
     city: "Paradise",
     address: "987 Pine St, Cityville, CA 12345",
     images: [
-        "assets/property.jpg",
-        "cabin2.jpg",
-        "cabin3.jpg"
+        "assets/dump/cabin.jpg",
+        "assets/dump/cabin-3.jpg",
+        "assets/dump/cabin-interior.jpg"
     ]
 },
 {
@@ -108,9 +108,9 @@ var listings = [
     city: "Mount Pearl",
     address: "321 Oak St, Cityville, FL 33101",
     images: [
-        "assets/property.jpg",
-        "villa2.jpg",
-        "villa3.jpg"
+        "assets/dump/villa.jpg",
+        "assets/dump/villa-2.jpg",
+        "assets/dump/villa-6.jpg"
     ]
 },
 {
@@ -127,15 +127,15 @@ var listings = [
     city: "Paradise",
     address: "987 Pine St, Cityville, CA 12345",
     images: [
-        "assets/property.jpg",
-        "cabin2.jpg",
-        "cabin3.jpg"
+        "assets/dump/apartment-2.jpg",
+        "assets/dump/apartment-1.jpg",
+        "assets/dump/apartment-3.jpg"
     ]
 },
 {
     id: 8,
-    title: "Cozy Cottage",
-    description: "A charming cottage in the countryside.",
+    title: "Condo",
+    description: "A charming condo in the countryside.",
     price: 200000,
     featured: true,
     bedrooms: 3,
@@ -146,9 +146,9 @@ var listings = [
     city: "St. John's",
     address: "789 Maple St, Cityville, VT 05601",
     images: [
-        "assets/property.jpg",
-        "cottage2.jpg",
-        "cottage3.jpg"
+        "assets/dump/condo-1.jpg",
+        "assets/dump/condo-3.jpg",
+        "assets/dump/condo-4.jpg"
     ]
 },
 {
@@ -165,9 +165,9 @@ var listings = [
     city: "St. John's",
     address: "321 Oak St, Cityville, FL 33101",
     images: [
-        "assets/property.jpg",
-        "villa2.jpg",
-        "villa3.jpg"
+        "assets/dump/beach-villa-1.jpg",
+        "assets/dump/beach-villa-2.jpg",
+        "assets/dump/beach-villa-3.jpg"
     ]
 }
 ];
