@@ -70,8 +70,10 @@
             <input type="search" name="search" placeholder="Search by address, city, or zip code" oninput="filterByName(event)">
         </section>
         
-        <section class="featured">
-            <div class="properties" id="listings">
+        <section class="featured ft-section">
+            <div class="ft-container">
+                <div class="properties ft-row" id="listings">
+                </div>
             </div>
             <div class="no-listings">
                 <h2 style="width: 100%; text-align: center;">No Listings Available</h2>
@@ -79,9 +81,11 @@
             </div>
         </section>
 
-        <section class="recent" data-exclude="true">
+        <section class="recent ft-section" data-exclude="true">
             <h2>Recently Viewed</h2>
-            <div class="properties recently-viewed">
+            <div class="ft-container">
+                <div class="properties ft-row recently-viewed">
+                </div>
             </div>
             <div class="no-recent-listings">
                 <p style="text-align: center; padding-bottom: 10%;">You Haven't Viewed Any Listings Yet</p>

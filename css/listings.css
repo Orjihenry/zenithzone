@@ -1,16 +1,3 @@
-.properties {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(300px, 1fr));
-    gap: var(--grid-gap);
-    align-items: center;
-    justify-items: center;
-    padding: 5%;
-}
-
-.prop-details {
-    background: var(--linear-background);
-}
-
 .prop-info {
     padding: 20px;
 }
