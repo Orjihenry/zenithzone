@@ -216,7 +216,7 @@ function displayListings() {
 
                         <h3>${listing.title}</h3>
                         <span class="location">${listing.city}</span>
-                        <a class="btn-modal d-flex align-items-center justify-content-center btn-custom">
+                        <a class="btn-modal def-btn d-flex align-items-center justify-content-center btn-custom">
         					<span class="ion-ios-link"><i class="fi fi-tr-link-alt"></i></span>
         				</a>
                     </div>
@@ -362,6 +362,8 @@ function renderRecentlyViewed(recentlyViewed = JSON.parse(localStorage.getItem("
     container.innerHTML = ""; // Clear old content
 
     recentlyViewed.forEach(listing => {
+        const priceFormat = new Intl.NumberFormat('en-US');
+            let price = priceFormat.format(listing.price);
         let html = `
         <div class="property prop-details ft-cols ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
                     <div class="img btn-modal" style="background-image: url('${listing.images[0]}');"></div>
@@ -378,7 +380,7 @@ function renderRecentlyViewed(recentlyViewed = JSON.parse(localStorage.getItem("
 
                         <h3>${listing.title}</h3>
                         <span class="location">${listing.city}</span>
-                        <a class="btn-modal d-flex align-items-center justify-content-center btn-custom">
+                        <a class="btn-modal def-btn d-flex align-items-center justify-content-center btn-custom">
         					<span class="ion-ios-link"><i class="fi fi-tr-link-alt"></i></span>
         				</a>
                     </div>

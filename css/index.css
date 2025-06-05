@@ -212,6 +212,10 @@
     display: none !important;
 }
 
+.extra {
+    box-shadow: 5px 10px 15px #f3dde9;
+}
+
 .extras-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
