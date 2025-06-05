@@ -201,17 +201,25 @@ function displayListings() {
             let price = priceFormat.format(listing.price);
             // Build HTML structure
             let html = `
-            <div class="property ${listing.featured ? "featListing" : "non-featured"}" id="details">
-                <div class="prop-details" data-id="${listing.id}">
-                    <img src="${listing.images[0]}" alt="${listing.title}" class="btn-modal">
-                    <div class="prop-info">
+            <div class="property prop-details ft-cols ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
+                    <div class="img btn-modal" style="background-image: url('${listing.images[0]}');"></div>
+                    <div class="ft-text">
+                        <p class="price">
+                            <span class="orig-price">$${price}</span>
+                        </p>
+
+                        <ul class="property_list">
+        					<li><span class="flaticon-bed"></span><i class="fi fi-tr-bed-alt"></i>${listing.bedrooms}</li>
+        					<li><span class="flaticon-bathtub"></span><i class="fi fi-tr-bath"></i>${listing.bathrooms}</li>
+        					<li><span class="flaticon-floor-plan"></span><i class="fi fi-tr-ruler-triangle"></i>1,878 sqft</li>
+        				</ul>
+
                         <h3>${listing.title}</h3>
-                        <p>Price: $${price}</p>
-                        <p>City: ${listing.city}</p>
-                        <p>Address: ${listing.address}</p>
-                        <button class="def-btn btn-modal">View More</button>
+                        <span class="location">${listing.city}</span>
+                        <a class="btn-modal d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-link"><i class="fi fi-tr-link-alt"></i></span>
+        				</a>
                     </div>
-                </div>
             </div>
             `;
         

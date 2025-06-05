@@ -107,6 +107,13 @@ img {
     border-radius: 8px;
     background-color: var(--primary-color);
     white-space: nowrap;
+    transition: .5s ease;
+}
+
+.def-btn:hover {
+    background-color: #D6D8D8;
+    color: #261722;
+    border: 1px solid;
 }
 
 /* Pages Hero Section */
@@ -127,9 +134,9 @@ img {
     margin-bottom: 15px;
 }
 
-.property {
+/* .property {
     width: 100%;
-}
+} */
 
 .property img {
     height: 400px;
