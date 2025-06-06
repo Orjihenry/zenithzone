@@ -241,8 +241,6 @@ h1 {
     margin: auto;
     padding: 20px;
     padding-bottom: 44px;
-    font-size: var(--h2-size);
-    font-weight: var(--font-weight);
     text-align: center;
 }
 
