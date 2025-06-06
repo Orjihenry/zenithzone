@@ -560,3 +560,17 @@ function update() {
 
     return false;
 }
+
+// For mobile-screen navbar
+const checkbox = document.getElementById('checkbox');
+const logo = document.querySelector('.logo');
+checkbox.addEventListener('change', () => {
+    let added = checkbox.parentElement.classList.toggle('active', checkbox.checked);
+    if (added) {
+        logo.classList.add('box-active');
+        logo.addEventListener('click', e => e.preventDefault());
+    } else {
+        logo.classList.remove('box-active')
+        logo.removeEventListener('click', e => e.preventDefault());
+    }
+});
