@@ -24,6 +24,6 @@ A modern, serverless real estate platform designed for listing and discovering p
 
 ✅ Deployment: GitHub Pages
 
-🔗 Live Demo: [https://orjihenry.github.io/zenithzone](https://orjihenry.github.io/zenithzone/index.html)
+🔗 Live Demo: [https://orjihenry.github.io/zenithzone](https://orjihenry.github.io/zenithzone/index.html){:target="_blank"}
 
-📜 License: [MIT](https://choosealicense.com/licenses/mit/)
+📜 License: [MIT](https://choosealicense.com/licenses/mit/){:target="_blank"}
