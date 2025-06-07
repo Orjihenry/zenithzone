@@ -93,11 +93,6 @@ h2 {
     padding: 8px;
 }
 
-p {
-    font-size: 1.2rem;
-    padding: 8px;
-}
-
 @media screen and (max-width: 768px) {
     .about,
     .cores,
