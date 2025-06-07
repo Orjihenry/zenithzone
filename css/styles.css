@@ -88,6 +88,62 @@ p {
         box-shadow: none;
     }
 
+    nav .sidebar .nav-add-mobile {
+        display: none;
+    }
+
+}
+
+.logo-div {
+    display: flex;
+    flex-direction: row;
+    color: #d7e4eb;
+    font-size: 35px;
+    font-style: oblique;
+    padding: 0;
+    margin: 0;
+}
+
+.logo {
+    font-family: "Sofia", sans-serif;
+    position: relative;
+    font-size: 35px;
+    padding: 0;
+    margin: 0;
+}
+
+.logo .inner-logo {
+    font-family: "Sofia", sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+.logo .inner-logo:nth-child(1) {
+    position: absolute;
+    top: 5px;
+    left: 28px;
+}
+
+.logo .inner-logo:nth-child(2) {
+    position: absolute;
+    bottom: 5px;
+    left: 29px;
+}
+
+.realty {
+    font-family: "Sofia", sans-serif;
+    font-size: 35px;
+    position: relative;
+    margin-left: 30px;
+}
+
+.realty .inner-realty {
+    font-family: "Sofia", sans-serif;
+    font-size: 16px;
+    position: absolute;
+    left: 24px;
+    bottom: 5px;
 }
 
 .logo img {
@@ -546,9 +602,17 @@ ul {
         font-size: var(--mobile-font-size);
     }
 
+    nav .nav-add {
+        display: none;
+    }
     nav {
         position: relative;
         background-color: #247D9E;
+        min-height: 50px;
+    }
+
+    nav .logo-div {
+        padding-left: 10px;
     }
 
     .box-active {
@@ -669,6 +733,11 @@ ul {
 
     #checkbox:checked + .btn span {
         display: inline;
+    }
+
+    .nav-add-mobile {
+        margin: 10% 4% 10% 10%;
+        float: right;
     }
 
     .hero {
