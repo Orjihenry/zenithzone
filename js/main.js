@@ -563,7 +563,7 @@ function update() {
 
 // For mobile-screen navbar
 const checkbox = document.getElementById('checkbox');
-const logo = document.querySelector('.logo');
+const logo = document.querySelector('.logo-div');
 checkbox.addEventListener('change', () => {
     let added = checkbox.parentElement.classList.toggle('active', checkbox.checked);
     if (added) {
