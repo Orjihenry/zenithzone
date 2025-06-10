@@ -196,7 +196,8 @@ var listingsContainer = document.getElementById("listings");
 function displayListings() {
 
     if (listings.length > 0) {
-        listings.forEach((listing) => {
+        let reversed = [...listings].reverse();
+        reversed.forEach((listing) => {
             const priceFormat = new Intl.NumberFormat('en-US');
             let price = priceFormat.format(listing.price);
             // Build HTML structure
