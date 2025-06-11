@@ -53,26 +53,13 @@
 @media screen and (max-width: 1080px) {
 
     .filter-section {
-        margin-top: 20%;
-    }
-
-    .properties {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(auto-fill, 1fr);
-        gap: var(--grid-gap);
-        align-items: center;
-        justify-items: center;
-        padding: 5%;
+        margin-top: 15%;
     }
 
 }
 
 @media screen and (max-width: 768px) {
 
-    /* main {
-        margin-top: 200px;
-    } */
     h1 {
         font-size: var(--mobile-font-size);
     }
@@ -82,17 +69,12 @@
         margin: 2% 0;
         padding: 5%;
     }
-
-    .property {
-        margin: 5% auto;
-    }
     
     .filter-section {
         grid-template-columns: repeat(1, 1fr);
         gap: var(--grid-gap);
         align-items: center;
-        margin-top: 30%;
-        padding: 5%;
+        margin: 10% 4%;
     }
     
     .filter-section input {
