@@ -169,10 +169,21 @@ img {
     transition: .5s ease;
 }
 
-.def-btn:hover {
+.def-btn:hover,
+.swal2-confirm:hover,
+.swal2-cancel:hover,
+#delete-listing:hover {
     background-color: #D6D8D8;
     color: #261722;
     border: 1px solid;
+}
+
+#swal2-html-container {
+    font-weight: 600;
+}
+
+#delete-listing {
+    background-color: #6e7881;
 }
 
 /* Pages Hero Section */
@@ -407,6 +418,12 @@ ul {
     font-weight: bold;
     font-style: italic;
 }
+
+.swal2-confirm {
+    background-color: var(--primary-color);
+}
+
+/* End Modal Styling */
 
 .community {
     width: 100%;

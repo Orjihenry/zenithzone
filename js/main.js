@@ -318,9 +318,26 @@ function displayListings() {
             });
             var deleteButton = modalDialog.querySelector("#delete-listing");
             deleteButton.addEventListener("click", (e) => {
-                listings = listings.filter(listing => listing.id !== id);
-                localStorage.setItem("listings", JSON.stringify(listings));
-                window.location.href = "listings.html?deleted=true";
+                Swal.fire({
+                    title: "Are you sure you want to delete this listing?",
+                    showCancelButton: true,
+                    confirmButtonText: "Save",
+                    icon: "question",
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        listings = listings.filter(listing => listing.id !== id);
+                        localStorage.setItem("listings", JSON.stringify(listings));
+                        window.location.href = "listings.html?deleted=true";
+                    } else {
+                        Swal.fire({
+                            html: `<p>Action canceled!</p>
+                                    <p>No changes were made.</p>`,
+                            icon: "info"
+                        });
+                    }
+                });
+
+                
             });
         });
     });
