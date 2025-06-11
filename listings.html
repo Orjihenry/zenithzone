@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/listings.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
@@ -150,12 +151,30 @@
         let created = urlParams.get("created");
     
         if (updated) {
-             alert("Listing updated successfully!");
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Listing updated successfully!",
+                showConfirmButton: false,
+                timer: 1800
+            });
         } else if (deleted) {
-            alert("Listing deleted successfully!");
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Listing deleted successfully!",
+                showConfirmButton: false,
+                timer: 1800
+            });
         }
         else if (created) {
-            alert("Listing created successfully!");
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Listing created successfully!",
+                showConfirmButton: false,
+                timer: 1800
+            });
         }
     
         // Remove query parameters from URL
