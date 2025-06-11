@@ -12,7 +12,7 @@
     --hambuger-margin: 10px;
     --hambuger-height: calc(var(--bar-height) * 3);
     --animation-timing: 200ms ease-in-out;
-    --mobile-font-size: 1.6rem;
+    --mobile-font-size: 1.4rem;
     --desktop-font-size: 2rem;
     --grid-gap: 20px;
     --linear-background: linear-gradient(to right, #8d909359, #8d909359);
@@ -176,26 +176,6 @@ img {
 }
 
 /* Pages Hero Section */
-
-.hero {
-    margin-top: 80px;
-    text-align: center;
-    font-style: italic;
-    padding: 5%;
-}
-
-.hero h1 {
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-.hero p {
-    margin-bottom: 15px;
-}
-
-/* .property {
-    width: 100%;
-} */
 
 .featured {
     position: relative;
@@ -742,13 +722,13 @@ ul {
         justify-content: center;
     }
 
-    .hero {
-        margin-top: 100px;
-    }
-
     .div-card, .ft-cols {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+
+    .ft-cols {
+        margin: 5% 0;
     }
 
     .community {

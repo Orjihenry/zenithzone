@@ -210,19 +210,6 @@
     margin: 10px;
 }
 
-.prop-info {
-    padding: 20px;
-}
-
-.prop-info h3 {
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.prop-details .def-btn {
-    margin-top: 3.5% !important;
-}
-
 .non-featured {
     display: none !important;
 }

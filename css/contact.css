@@ -13,11 +13,6 @@
     background-color: var(--background-color);
 }
 
-.contact-us h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
 .contact-us p {
     font-size: 1.2rem;
     margin-bottom: 20px;
