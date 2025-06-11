@@ -272,7 +272,7 @@ function displayListings() {
                         </div>
                         <div class="action-buttons">
                             <button class="def-btn" id="edit-listing">Edit</button>
-                            <button class="def-btn" id="delete-listing">Delete</button>
+                            <button class="def-btn cancel-btn" id="delete-listing">Delete</button>
                         </div>
                     </div>
                 `;
@@ -381,7 +381,7 @@ function renderRecentlyViewed(recentlyViewed = JSON.parse(localStorage.getItem("
 
     recentlyViewed.forEach(listing => {
         const priceFormat = new Intl.NumberFormat('en-US');
-            let price = priceFormat.format(listing.price);
+        let price = priceFormat.format(listing.price);
         let html = `
         <div class="property prop-details ft-cols ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
                     <div class="img btn-modal" style="background-image: url('${listing.images[0]}');"></div>
