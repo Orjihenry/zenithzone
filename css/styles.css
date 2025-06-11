@@ -170,8 +170,8 @@ img {
 }
 
 .def-btn:hover,
-.swal2-confirm:hover,
 .swal2-cancel:hover,
+.swal2-confirm:hover,
 #delete-listing:hover {
     background-color: #D6D8D8;
     color: #261722;
@@ -182,6 +182,7 @@ img {
     font-weight: 600;
 }
 
+.cancel-btn,
 #delete-listing {
     background-color: #6e7881;
 }
