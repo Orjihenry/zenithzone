@@ -57,6 +57,12 @@
     width: 100%;
 }
 
+.form input.error,
+.form textarea.error,
+.form select.error {
+    border: 1px solid #f90505;
+}
+
 .input-div {
     padding: 40px 20px;
     text-align: center;
