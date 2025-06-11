@@ -456,31 +456,51 @@ function validateForm() {
     } else if (isValid && createForm) {
         createListings();
     } else {
-        alert("Please fill in all fields and upload at least one image.");
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            html: `<p>Something went wrong!</p>
+                    <small>Please fill in all fields and upload at least one image.</small>`,
+            draggable: true
+        });
     }
 
     return false; // prevent default form submission
 }
 
 function checkValidation() {
-    const title = document.querySelector("#title").value.trim();
-    const propertyType = document.querySelector("#property-type").value.trim();
-    const description = document.querySelector("#description").value.trim();
-    const price = document.querySelector("#price").value.trim();
-    const bedrooms = document.querySelector("#bedrooms").value.trim();
-    const bathrooms = document.querySelector("#bathrooms").value.trim();
-    const status = document.querySelector("#status").value.trim();
-    const contact = document.querySelector("#contact").value.trim();
-    const city = document.querySelector("#city").value.trim();
-    const address = document.querySelector("#address").value.trim();
+    const title = document.querySelector("#title");
+    const propertyType = document.querySelector("#property-type");
+    const description = document.querySelector("#description");
+    const price = document.querySelector("#price");
+    const bedrooms = document.querySelector("#bedrooms");
+    const bathrooms = document.querySelector("#bathrooms");
+    const status = document.querySelector("#status");
+    const contact = document.querySelector("#contact");
+    const city = document.querySelector("#city");
+    const address = document.querySelector("#address");
+    let emptyField = false;
 
     const requiredFields = [title, propertyType, description, price, bedrooms, bathrooms, status, contact, city, address];
 
-    const allFilled = requiredFields.every(field => field !== "");
+    requiredFields.forEach(field => {
+    if (field.value.trim() === '') {
+        console.log(`${field.id} is empty`);
+        emptyField = true;
+        field.classList.add('error');
+    } else {
+        field.classList.remove('error');
+    }
+    });
+
+    const allFilled = requiredFields.every(field => field.value.trim() !== "");
 
     const hasImages = Array.isArray(imageUrls) && imageUrls.length > 0;
 
-    return allFilled && hasImages;
+    if (!emptyField) {
+        return allFilled && hasImages;
+    }
+
 }
 
 // Create listings function here
