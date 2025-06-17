@@ -7,8 +7,8 @@ A modern, serverless real estate platform designed for listing and discovering p
 
 ## 🔗 Live Demo: [https://orjihenry.github.io/zenithzone](https://orjihenry.github.io/zenithzone/index.html)
 
-![Screenshot of Zenith Zone Realty](images/screenshots/mobile-screenshot.png)
-![Screenshot of Zenith Zone Realty](images/screenshots/desktop-screenshot.png)
+![Screenshot of Zenith Zone Realty](assets/screenshots/mobile-screenshot.png)
+![Screenshot of Zenith Zone Realty](assets/screenshots/desktop-screenshot.png)
 
 ## Project Features
 🏠 Property Listings – Browse and search for homes, apartments, and land.
