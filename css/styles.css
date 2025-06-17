@@ -200,6 +200,7 @@ img {
     transform: translateY(40px);
     animation: fadeIn 0.8s ease-out forwards;
     animation-delay: 0.3s;
+    padding-top: 0px;
 }
 
 @keyframes fadeIn {
