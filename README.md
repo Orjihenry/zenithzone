@@ -7,21 +7,21 @@ A modern, serverless real estate platform designed for listing and discovering p
 
 ## 🔗 Live Demo: [https://orjihenry.github.io/zenithzone](https://orjihenry.github.io/zenithzone/index.html)
 
-<p>
+<p align="center">
     <img src="assets/screenshots/mobile-screenshot.png" alt="Screenshot of Zenith Zone Realty" height="300" style="margin-right: 10px;">
     <img src="assets/screenshots/desktop-screenshot.png" alt="Screenshot of Zenith Zone Realty" height="300">
 </p>
 
 ## Project Features
-🏠 Property Listings – Browse and search for homes, apartments, and land.
+__🏠 Property Listings__ – Browse and search for homes, apartments, and land.
 
-🔍 Search & Filters – Easily find properties based on categories and features.
+__🔍 Search & Filters__ – Easily find properties based on categories and features.
 
-📸 Image Showcase – View high-quality images of listed properties.
+__📸 Image Showcase__ – View high-quality images of listed properties.
 
-📞 Contact Owners – Connect with sellers directly through a simple interface.
+__📞 Contact Owners__ – Connect with sellers directly through a simple interface.
 
-📱 Responsive UI – Optimized for both desktop and mobile use.
+__📱 Responsive UI__ – Optimized for both desktop and mobile use.
 
 💡 Ideal for developers learning JavaScript and serverless applications.
 
@@ -32,15 +32,15 @@ I set out to build this real estate listing platform to reduce the dependency on
 Additionally, as a new Get-Building student, this project provides a hands-on opportunity to apply what I’m learning, enhance my technical skills, and gain experience by building practical, real-world solutions that matter.
 
 ## Tech Stack:
-✅ Frontend: HTML, CSS, Icons8, SweetAlert2, FontAwesome
+__✅ Frontend:__ HTML, CSS, Icons8, SweetAlert2, FontAwesome
 \
-✅ Backend: EmailJs, JavaScript (Vanila JS), Serverless (LocalStorage)
+__✅ Backend:__ EmailJs, JavaScript (Vanila JS), Serverless (LocalStorage)
 \
-✅ Deployment: GitHub Pages
+__✅ Deployment:__ GitHub Pages
 \
-📜 License: [MIT](https://choosealicense.com/licenses/mit/)
+__📜 License:__ [MIT](https://choosealicense.com/licenses/mit/)
 
-# Credits
+## Acknowledgments
 
 __Gowtham Padal__ has always being there to guide me whenever I hit a dead end. Your support and mentorship mean a lot.  I’m incredibly grateful for his support and the time he’s invested in helping me grow
 
