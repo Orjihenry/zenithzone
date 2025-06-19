@@ -134,7 +134,7 @@ var listings = [
 },
 {
     id: 8,
-    title: "Condo",
+    title: "Luxury Condo",
     description: "A charming condo in the countryside.",
     price: 200000,
     featured: true,
@@ -172,7 +172,7 @@ var listings = [
 }
 ];
 
-var viewedListings = [];
+let viewedListings = JSON.parse(localStorage.getItem("viewedListings")) || [];
 
 var storedListings = JSON.parse(localStorage.getItem("listings"));
 if (storedListings && storedListings.length > 0) {
@@ -328,6 +328,7 @@ function displayListings() {
                         listings = listings.filter(listing => listing.id !== id);
                         localStorage.setItem("listings", JSON.stringify(listings));
                         window.location.href = "listings.html?deleted=true";
+                        removeFromRecentlyViewed(id);
                     } else {
                         Swal.fire({
                             html: `<p>Action canceled!</p>
@@ -349,14 +350,10 @@ function trackViewedListings() {
     buttons.forEach(button => {
         button.addEventListener("click", (e) => {
             let id = parseInt(e.target.closest(".prop-details")?.dataset?.id);
+            let recentlyViewed = JSON.parse(localStorage.getItem("viewedListings")) || [];
             let listing = listings.find(listing => listing.id === id);
             
-            if (!listing) return;
-
-            let recentlyViewed = JSON.parse(localStorage.getItem("viewedListings")) || [];
-            
             recentlyViewed = recentlyViewed.filter(item => item.id !== listing.id);
-
             recentlyViewed.unshift(listing);
 
             if (recentlyViewed.length > 3) {
@@ -364,21 +361,25 @@ function trackViewedListings() {
             }
 
             localStorage.setItem("viewedListings", JSON.stringify(recentlyViewed));
-
             renderRecentlyViewed(recentlyViewed);
         });
     });
-    
 }
 
+function removeFromRecentlyViewed(id) {
+    let viewedListings = JSON.parse(localStorage.getItem("viewedListings")) || [];
+    viewedListings = viewedListings.filter(listing => listing.id !== id);
+    localStorage.setItem("viewedListings", JSON.stringify(viewedListings));
+}
 
-function renderRecentlyViewed(recentlyViewed = JSON.parse(localStorage.getItem("viewedListings")) || []) {
+function renderRecentlyViewed() {
     const container = document.querySelector(".recently-viewed");
     var noListings = document.querySelector(".no-recent-listings");
-    if (!container || recentlyViewed.length === 0) return;
-
-    container.innerHTML = ""; // Clear old content
-
+    
+    container.innerHTML = "";
+    
+    var recentlyViewed = JSON.parse(localStorage.getItem("viewedListings")) || [];
+    if (!container || viewedListings.length === 0) return;
     recentlyViewed.forEach(listing => {
         const priceFormat = new Intl.NumberFormat('en-US');
         let price = priceFormat.format(listing.price);
@@ -407,9 +408,119 @@ function renderRecentlyViewed(recentlyViewed = JSON.parse(localStorage.getItem("
         container.innerHTML += html;
     });
 
-    let viewedListings = JSON.parse(localStorage.getItem("viewedListings")) || [];
-
     noListings.style.display = viewedListings.length === 0 ? "block" : "none";
+
+    // Add event listeners to the buttons
+    const modalDialog = document.querySelector(".modal");
+    const buttons = document.querySelectorAll(".btn-modal");
+
+    // Open modal dialog
+    buttons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            let id = parseInt(e.target.closest(".prop-details").dataset.id);
+            let listing = listings.find(listing => listing.id === id);
+            let imageUrls = listing.images;
+            if (listing) {
+                modalDialog.style.display = "block";
+                const priceFormat = new Intl.NumberFormat('en-US');
+                let price = priceFormat.format(listing.price);
+                modalDialog.innerHTML = `
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>${listing.title}</h2>
+                        <div class="image-container">
+                            <ul class="modal-images">
+                                ${imageUrls.map(imageUrl => `<li><img src="${imageUrl}" onerror="this.onerror=null; this.src='assets/rental.jpg'" alt="${listing.title}" class="inactive"></li>`).join("")}
+                            </ul>
+                            <button class="btn-prev prev">‹</button>
+                            <button class="btn-next next">›</button>
+                        </div>
+                        <div class="features">
+                            <div class="left-features">
+                                <p><span>Address:</span> ${listing.address}</p>
+                                <p><span>City:</span> ${listing.city}</p>
+                                <p><span>Price:</span> $${price}</p>
+                                <p><span>Bedrooms:</span> ${listing.bedrooms}</p>
+                                <p><span>Bathrooms:</span> ${listing.bathrooms}</p>
+                                <p><span>Contact:</span> ${listing.contact}</p>
+                            </div>
+                            <div class="right-description">
+                                <p><span>Type:</span> ${listing.propertyType}</p>
+                                <p><span class="listing-overwiew">Overview:</span> ${listing.description} Plenty Eplanation for the overview part to see how e go display for page</p>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="def-btn" id="edit-listing">Edit</button>
+                            <button class="def-btn cancel-btn" id="delete-listing">Delete</button>
+                        </div>
+                    </div>
+                `;
+
+                const modalImages = modalDialog.querySelectorAll(".modal-images li");
+                const prevButton = modalDialog.querySelector(".btn-prev");
+                const nextButton = modalDialog.querySelector(".btn-next");
+
+                let currentIndex = 0;
+                updateCarousel();
+
+                prevButton.addEventListener("click", () => {
+                    currentIndex = (currentIndex - 1 + modalImages.length) % modalImages.length;
+                    updateCarousel();
+                });
+
+                nextButton.addEventListener("click", () => {
+                    currentIndex = (currentIndex + 1) % modalImages.length;
+                    updateCarousel();
+                });
+
+                function updateCarousel() {
+                    modalImages.forEach((image, index) => {
+                        image.style.display = index === currentIndex ? "flex" : "none";
+                    });
+                }
+
+                const closeButton = modalDialog.querySelector(".close");
+                closeButton.addEventListener("click", () => {
+                    modalDialog.style.display = "none";
+                });
+                window.onclick = function(event) {
+                    if (event.target == modalDialog) {
+                      modalDialog.style.display = "none";
+                    }
+                }
+
+            }
+            const editButton = modalDialog.querySelector("#edit-listing");
+            editButton.addEventListener("click", (e) => {
+                e.preventDefault();
+                window.location.href = "edit.html?id=" + listing.id;
+            });
+            var deleteButton = modalDialog.querySelector("#delete-listing");
+            deleteButton.addEventListener("click", (e) => {
+                Swal.fire({
+                    title: "Are you sure you want to delete this listing?",
+                    showCancelButton: true,
+                    confirmButtonText: "Save",
+                    icon: "question",
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        listings = listings.filter(listing => listing.id !== id);
+                        localStorage.setItem("listings", JSON.stringify(listings));
+                        window.location.href = "listings.html?deleted=true";
+                        removeFromRecentlyViewed(id);
+                    } else {
+                        Swal.fire({
+                            html: `<p>Action canceled!</p>
+                                    <p>No changes were made.</p>`,
+                            icon: "info"
+                        });
+                    }
+                });
+
+                
+            });
+        });
+    });
 }
 
 // Preview images function
