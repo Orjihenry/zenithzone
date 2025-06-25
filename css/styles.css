@@ -389,6 +389,7 @@ ul {
 
 .modal-images li {
     display: flex;
+    width: 100%;
 }
 
 .btn-prev,
@@ -422,6 +423,39 @@ ul {
 
 .swal2-confirm {
     background-color: var(--primary-color);
+}
+
+.info-cat {
+    gap: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.info-feat,
+.info-desc,
+.info-map {
+    padding: 20px;
+    opacity: .5;
+}
+
+.info-left-feat {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info-active {
+    opacity: 1;
+}
+
+.info-left-feat ul li {
+    /* height: 2.3em; */
+    padding: 10px;
+}
+
+.info-intro-desc,
+.info-intro-map {
+    display: none;
 }
 
 /* End Modal Styling */
@@ -533,7 +567,7 @@ ul {
 
 .modal-images img{
     width: 100%;
-    height: 450px;
+    height: 375px;
     object-fit: cover;
 }
 

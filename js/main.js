@@ -435,19 +435,41 @@ function renderRecentlyViewed() {
                             <button class="btn-prev prev">‹</button>
                             <button class="btn-next next">›</button>
                         </div>
-                        <div class="features">
-                            <div class="left-features">
-                                <p><span>Address:</span> ${listing.address}</p>
-                                <p><span>City:</span> ${listing.city}</p>
-                                <p><span>Price:</span> $${price}</p>
-                                <p><span>Bedrooms:</span> ${listing.bedrooms}</p>
-                                <p><span>Bathrooms:</span> ${listing.bathrooms}</p>
-                                <p><span>Contact:</span> ${listing.contact}</p>
-                            </div>
-                            <div class="right-description">
-                                <p><span>Type:</span> ${listing.propertyType}</p>
-                                <p><span class="listing-overwiew">Overview:</span> ${listing.description} Plenty Eplanation for the overview part to see how e go display for page</p>
-                            </div>
+                        <div class="info-cat">
+                            <h4 class="info-feat info-active">Features</h4>
+                            <h4 class="info-desc">Description</h4>
+                            <h4 class="info-map">Map</h4>
+                        </div>
+
+                        <div class="info-left-feat">
+                            <ul>
+                                <li><i class="fi fi-sr-check"></i><span>Address:</span> ${listing.address}</li>
+                                <li><i class="fi fi-sr-check"></i><span>City:</span> ${listing.city}</li>
+                                <li><i class="fi fi-sr-check"></i><span>Build Year:</span> 2011 </li>
+                                <li><i class="fi fi-sr-check"></i><span>Lot Area:</span> 1,878 sqft</li>
+                            </ul>
+                            <ul>
+                                <li><i class="fi fi-sr-check"></i><span>Listed in:</span> June 2025 </li>
+                                <li><i class="fi fi-sr-check"></i><span>Listed For:</span> $${price}</li>
+                                <li><i class="fi fi-sr-check"></i><span>Garage:</span> 1 </li>
+                                <li><i class="fi fi-sr-check"></i><span>Bedrooms:</span> ${listing.bedrooms}</li>
+                            </ul>
+                            <ul>
+                                <li><i class="fi fi-sr-check"></i><span>Bathrooms:</span> ${listing.bathrooms}</li>
+                                <li><i class="fi fi-sr-check"></i><span>Contact:</span> ${listing.contact}</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-intro-desc">
+                            <p>
+                               ${listing.description} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita placeat voluptatum qui, itaque ut reprehenderit accusamus sint quae laudantium modi. Perspiciatis id corrupti aliquid earum magnam corporis. Minus veritatis provident ratione.
+                            </p>
+                        </div>
+
+                        <div class="info-intro-map">
+                            <p>
+                               Map iframe here...
+                            </p>
                         </div>
                         <div class="action-buttons">
                             <button class="def-btn" id="edit-listing">Edit</button>
@@ -455,6 +477,31 @@ function renderRecentlyViewed() {
                         </div>
                     </div>
                 `;
+
+                let mapBtn = document.querySelector('.info-map');
+                let featBtn = document.querySelector('.info-feat');
+                let descBtn = document.querySelector('.info-desc');
+                let mapElement = document.querySelector('.info-intro-map');
+                let featElement = document.querySelector('.info-left-feat');
+                let descElement = document.querySelector('.info-intro-desc');
+
+                var infoCatBtns = [
+                    { button: mapBtn, element: mapElement, display: 'block' },
+                    { button: featBtn, element: featElement, display: 'flex' },
+                    { button: descBtn, element: descElement, display: 'block' }
+                ];
+
+                infoCatBtns.forEach(item => {
+                    item.button.addEventListener('click', () => {
+                        infoCatBtns.forEach(s => {
+                            s.element.style.display = 'none';
+                            s.button.classList.remove('info-active');
+                        });
+
+                        item.element.style.display = item.display;
+                        item.button.classList.add('info-active');
+                    });
+                });
 
                 const modalImages = modalDialog.querySelectorAll(".modal-images li");
                 const prevButton = modalDialog.querySelector(".btn-prev");
