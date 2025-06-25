@@ -453,6 +453,12 @@ ul {
     padding: 10px;
 }
 
+.info-intro-desc p {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 3%;
+}
+
 .info-intro-desc,
 .info-intro-map {
     display: none;
