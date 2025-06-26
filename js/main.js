@@ -796,13 +796,21 @@ function checkValidation() {
     const price = document.querySelector("#price");
     const bedrooms = document.querySelector("#bedrooms");
     const bathrooms = document.querySelector("#bathrooms");
+    const garage = document.querySelector("#garage");
+    const lotArea = document.querySelector("#lot-area");
+    const buildYear = document.querySelector("#build-year");
     const status = document.querySelector("#status");
     const contact = document.querySelector("#contact");
     const city = document.querySelector("#city");
-    const address = document.querySelector("#address");
+    const aptNumber = document.querySelector('#apt-number');
+    const streetNumber = document.querySelector('#street-number');
+    const streetName = document.querySelector('#street-name');
+    const province = document.querySelector('#province');
+    const country = document.querySelector('#country');
+
     let emptyField = false;
 
-    const requiredFields = [title, propertyType, description, price, bedrooms, bathrooms, status, contact, city, address];
+    const requiredFields = [title, propertyType, description, price, bedrooms, bathrooms, garage, lotArea, buildYear, status, contact, city, aptNumber, streetNumber, streetName, province, country];
 
     requiredFields.forEach(field => {
     if (field.value.trim() === '') {
