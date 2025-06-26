@@ -7,11 +7,19 @@ var listings = [
     featured: true,
     bedrooms: 4,
     bathrooms: 3,
+    garage: 2,
+    lotArea: 1720,
+    buildYear: 2011,
     status: 'available',
     propertyType: "house",
     contact: "123-456-7890",
     city: "Mount Pearl",
     address: "456 Elm St, Cityville, CA 12345",
+    aptNumber: '',
+    streetNumber: '456',
+    streetName: 'Elm St',
+    province: 'Newfoundland & Labrador',
+    counrty: 'Canada',
     images: [
         "assets/dump/beach-house.jpg",
         "assets/dump/beach-house-interior-2.jpg",
@@ -26,11 +34,19 @@ var listings = [
     featured: false,
     bedrooms: 2,
     bathrooms: 1,
+    garage: 2,
+    lotArea: 1878,
+    buildYear: 2016,
     status: 'available',
     propertyType: "apartment",
     contact: "987-654-3210",
     city: "Paradise",
     address: "123 Main St, Cityville, NY 10001",
+    aptNumber: '',
+    streetNumber: '123',
+    streetName: 'Main St',
+    province: 'Newfoundland & Labrador',
+    counrty: 'Canada',
     images: [
         "assets/dump/house-3.jpg",
         "assets/dump/house-2.jpg",
@@ -45,11 +61,19 @@ var listings = [
     featured: true,
     bedrooms: 3,
     bathrooms: 2,
+    garage: 2,
+    lotArea: 1942,
+    buildYear: 2008,
     status: 'available',
     propertyType: "condo",
     contact: "555-555-5555",
     city: "Paradise",
     address: "789 Maple St, Cityville, VT 05601",
+    aptNumber: '',
+    streetNumber: '789',
+    streetName: 'Maple St',
+    province: 'Newfoundland & Labrador',
+    counrty: 'Canada',
     images: [
         "assets/dump/cottage-2.jpg",
         "assets/dump/cottage-1.jpg",
@@ -64,11 +88,19 @@ var listings = [
     featured: false,
     bedrooms: 5,
     bathrooms: 4,
+    garage: 2,
+    lotArea: 1720,
+    buildYear: 2013,
     status: 'available',
     propertyType: "house",
     contact: "111-222-3333",
     city: "St. John's",
     address: "321 Oak St, Cityville, FL 33101",
+    aptNumber: '',
+    streetNumber: '321',
+    streetName: 'Oak St',
+    province: 'Newfoundland & Labrador',
+    counrty: 'Canada',
     images: [
         "assets/dump/villa-2.jpg",
         "assets/dump/villa-interior.jpg",
@@ -83,11 +115,19 @@ var listings = [
     featured: true,
     bedrooms: 2,
     bathrooms: 1,
+    garage: 1,
+    lotArea: 1720,
+    buildYear: 2010,
     status: 'available',
     propertyType: "house",
     contact: "444-555-6666",
     city: "Paradise",
     address: "987 Pine St, Cityville, CA 12345",
+    aptNumber: '',
+    streetNumber: '987',
+    streetName: 'Pine St',
+    province: 'Newfoundland & Labrador',
+    counrty: 'Canada',
     images: [
         "assets/dump/cabin.jpg",
         "assets/dump/cabin-3.jpg",
@@ -102,11 +142,19 @@ var listings = [
     featured: false,
     bedrooms: 5,
     bathrooms: 4,
+    garage: 3,
+    lotArea: 2520,
+    buildYear: 2011,
     status: 'available',
     propertyType: "house",
     contact: "111-222-3333",
     city: "Mount Pearl",
     address: "321 Oak St, Cityville, FL 33101",
+    aptNumber: '',
+    streetNumber: '321',
+    streetName: 'Oak St',
+    province: 'Newfoundland & Labrador',
+    counrty: 'Canada',
     images: [
         "assets/dump/villa.jpg",
         "assets/dump/villa-2.jpg",
@@ -121,11 +169,19 @@ var listings = [
     featured: false,
     bedrooms: 2,
     bathrooms: 1,
+    garage: 0,
+    lotArea: 1483,
+    buildYear: 2015,
     status: 'available',
     propertyType: "apartment",
     contact: "444-555-6666",
     city: "Paradise",
     address: "987 Pine St, Cityville, CA 12345",
+    aptNumber: '',
+    streetNumber: '987',
+    streetName: 'Pine St',
+    province: 'Newfoundland & Labrador',
+    counrty: 'Canada',
     images: [
         "assets/dump/apartment-2.jpg",
         "assets/dump/apartment-1.jpg",
@@ -140,11 +196,19 @@ var listings = [
     featured: true,
     bedrooms: 3,
     bathrooms: 2,
+    garage: 1,
+    lotArea: 1379,
+    buildYear: 2019,
     status: 'available',
     propertyType: "condo",
     contact: "555-555-5555",
     city: "St. John's",
     address: "789 Maple St, Cityville, VT 05601",
+    aptNumber: '',
+    streetNumber: '789',
+    streetName: 'Maple St',
+    province: 'Newfoundland & Labrador',
+    counrty: 'Canada',
     images: [
         "assets/dump/condo-1.jpg",
         "assets/dump/condo-3.jpg",
@@ -159,11 +223,19 @@ var listings = [
     featured: false,
     bedrooms: 5,
     bathrooms: 4,
+    garage: 2,
+    lotArea: 2720,
+    buildYear: 2010,
     status: 'available',
     propertyType: "cottage",
     contact: "111-222-3333",
     city: "St. John's",
     address: "321 Oak St, Cityville, FL 33101",
+    aptNumber: '',
+    streetNumber: '321',
+    streetName: 'Oak St',
+    province: 'Newfoundland & Labrador',
+    counrty: 'Canada',
     images: [
         "assets/dump/beach-villa-1.jpg",
         "assets/dump/beach-villa-2.jpg",
@@ -200,6 +272,7 @@ function displayListings() {
         reversed.forEach((listing) => {
             const priceFormat = new Intl.NumberFormat('en-US');
             let price = priceFormat.format(listing.price);
+            let lotArea = priceFormat.format(listing.lotArea);
             // Build HTML structure
             let html = `
             <div class="property prop-details ft-cols ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
@@ -212,7 +285,7 @@ function displayListings() {
                         <ul class="property_list">
         					<li><span class="flaticon-bed"></span><i class="fi fi-tr-bed-alt"></i>${listing.bedrooms}</li>
         					<li><span class="flaticon-bathtub"></span><i class="fi fi-tr-bath"></i>${listing.bathrooms}</li>
-        					<li><span class="flaticon-floor-plan"></span><i class="fi fi-tr-ruler-triangle"></i>1,878 sqft</li>
+        					<li><span class="flaticon-floor-plan"></span><i class="fi fi-tr-ruler-triangle"></i>${lotArea} sqft</li>
         				</ul>
 
                         <h3>${listing.title}</h3>
@@ -245,6 +318,7 @@ function displayListings() {
                 modalDialog.style.display = "block";
                 const priceFormat = new Intl.NumberFormat('en-US');
                 let price = priceFormat.format(listing.price);
+                let lotArea = priceFormat.format(listing.lotArea);
                 modalDialog.innerHTML = `
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -264,15 +338,15 @@ function displayListings() {
 
                         <div class="info-left-feat">
                             <ul>
-                                <li><i class="fi fi-sr-check"></i><span>Address:</span> ${listing.address}</li>
+                                <li><i class="fi fi-sr-check"></i><span>Address:</span> ${listing.aptNumber || ''} ${listing.streetNumber} ${listing.streetName}</li>
                                 <li><i class="fi fi-sr-check"></i><span>City:</span> ${listing.city}</li>
-                                <li><i class="fi fi-sr-check"></i><span>Build Year:</span> 2011 </li>
-                                <li><i class="fi fi-sr-check"></i><span>Lot Area:</span> 1,878 sqft</li>
+                                <li><i class="fi fi-sr-check"></i><span>Build Year:</span> ${listing.buildYear} </li>
+                                <li><i class="fi fi-sr-check"></i><span>Lot Area:</span> ${lotArea} sqft</li>
                             </ul>
                             <ul>
                                 <li><i class="fi fi-sr-check"></i><span>Listed in:</span> June 2025 </li>
                                 <li><i class="fi fi-sr-check"></i><span>Listed For:</span> $${price}</li>
-                                <li><i class="fi fi-sr-check"></i><span>Garage:</span> 1 </li>
+                                <li><i class="fi fi-sr-check"></i><span>Garage:</span> ${listing.garage} </li>
                                 <li><i class="fi fi-sr-check"></i><span>Bedrooms:</span> ${listing.bedrooms}</li>
                             </ul>
                             <ul>
@@ -430,6 +504,7 @@ function renderRecentlyViewed() {
     recentlyViewed.forEach(listing => {
         const priceFormat = new Intl.NumberFormat('en-US');
         let price = priceFormat.format(listing.price);
+        let lotArea = priceFormat.format(listing.lotArea);
         let html = `
         <div class="property prop-details ft-cols ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
                     <div class="img btn-modal" style="background-image: url('${listing.images[0]}');"></div>
@@ -441,7 +516,7 @@ function renderRecentlyViewed() {
                         <ul class="property_list">
         					<li><span class="flaticon-bed"></span><i class="fi fi-tr-bed-alt"></i>${listing.bedrooms}</li>
         					<li><span class="flaticon-bathtub"></span><i class="fi fi-tr-bath"></i>${listing.bathrooms}</li>
-        					<li><span class="flaticon-floor-plan"></span><i class="fi fi-tr-ruler-triangle"></i>1,878 sqft</li>
+        					<li><span class="flaticon-floor-plan"></span><i class="fi fi-tr-ruler-triangle"></i>${lotArea} sqft</li>
         				</ul>
 
                         <h3>${listing.title}</h3>
@@ -471,6 +546,7 @@ function renderRecentlyViewed() {
                 modalDialog.style.display = "block";
                 const priceFormat = new Intl.NumberFormat('en-US');
                 let price = priceFormat.format(listing.price);
+                let lotArea = priceFormat.format(listing.lotArea);
                 modalDialog.innerHTML = `
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -490,15 +566,15 @@ function renderRecentlyViewed() {
 
                         <div class="info-left-feat">
                             <ul>
-                                <li><i class="fi fi-sr-check"></i><span>Address:</span> ${listing.address}</li>
+                                <li><i class="fi fi-sr-check"></i><span>Address:</span> ${listing.aptNumber || ''} ${listing.streetNumber} ${listing.streetName}</li>
                                 <li><i class="fi fi-sr-check"></i><span>City:</span> ${listing.city}</li>
-                                <li><i class="fi fi-sr-check"></i><span>Build Year:</span> 2011 </li>
-                                <li><i class="fi fi-sr-check"></i><span>Lot Area:</span> 1,878 sqft</li>
+                                <li><i class="fi fi-sr-check"></i><span>Build Year:</span> ${listing.buildYear} </li>
+                                <li><i class="fi fi-sr-check"></i><span>Lot Area:</span> ${lotArea} sqft</li>
                             </ul>
                             <ul>
                                 <li><i class="fi fi-sr-check"></i><span>Listed in:</span> June 2025 </li>
                                 <li><i class="fi fi-sr-check"></i><span>Listed For:</span> $${price}</li>
-                                <li><i class="fi fi-sr-check"></i><span>Garage:</span> 1 </li>
+                                <li><i class="fi fi-sr-check"></i><span>Garage:</span> ${listing.garage} </li>
                                 <li><i class="fi fi-sr-check"></i><span>Bedrooms:</span> ${listing.bedrooms}</li>
                             </ul>
                             <ul>
