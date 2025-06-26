@@ -17,7 +17,7 @@ var listings = [
     address: "456 Elm St, Cityville, CA 12345",
     aptNumber: '',
     streetNumber: '456',
-    streetName: 'Elm St',
+    streetName: 'Elm St.',
     province: 'Newfoundland & Labrador',
     counrty: 'Canada',
     images: [
@@ -44,7 +44,7 @@ var listings = [
     address: "123 Main St, Cityville, NY 10001",
     aptNumber: '',
     streetNumber: '123',
-    streetName: 'Main St',
+    streetName: 'Main St.',
     province: 'Newfoundland & Labrador',
     counrty: 'Canada',
     images: [
@@ -71,7 +71,7 @@ var listings = [
     address: "789 Maple St, Cityville, VT 05601",
     aptNumber: '',
     streetNumber: '789',
-    streetName: 'Maple St',
+    streetName: 'Maple St.',
     province: 'Newfoundland & Labrador',
     counrty: 'Canada',
     images: [
@@ -98,7 +98,7 @@ var listings = [
     address: "321 Oak St, Cityville, FL 33101",
     aptNumber: '',
     streetNumber: '321',
-    streetName: 'Oak St',
+    streetName: 'Oak St.',
     province: 'Newfoundland & Labrador',
     counrty: 'Canada',
     images: [
@@ -125,7 +125,7 @@ var listings = [
     address: "987 Pine St, Cityville, CA 12345",
     aptNumber: '',
     streetNumber: '987',
-    streetName: 'Pine St',
+    streetName: 'Pine St.',
     province: 'Newfoundland & Labrador',
     counrty: 'Canada',
     images: [
@@ -152,7 +152,7 @@ var listings = [
     address: "321 Oak St, Cityville, FL 33101",
     aptNumber: '',
     streetNumber: '321',
-    streetName: 'Oak St',
+    streetName: 'Oak St.',
     province: 'Newfoundland & Labrador',
     counrty: 'Canada',
     images: [
@@ -179,7 +179,7 @@ var listings = [
     address: "987 Pine St, Cityville, CA 12345",
     aptNumber: '',
     streetNumber: '987',
-    streetName: 'Pine St',
+    streetName: 'Pine St.',
     province: 'Newfoundland & Labrador',
     counrty: 'Canada',
     images: [
@@ -203,10 +203,10 @@ var listings = [
     propertyType: "condo",
     contact: "555-555-5555",
     city: "St. John's",
-    address: "789 Maple St, Cityville, VT 05601",
+    address: "789 Maple St., Cityville, VT 05601",
     aptNumber: '',
     streetNumber: '789',
-    streetName: 'Maple St',
+    streetName: 'Maple St.',
     province: 'Newfoundland & Labrador',
     counrty: 'Canada',
     images: [
@@ -230,10 +230,10 @@ var listings = [
     propertyType: "cottage",
     contact: "111-222-3333",
     city: "St. John's",
-    address: "321 Oak St, Cityville, FL 33101",
+    address: "321 Oak St., Cityville, FL 33101",
     aptNumber: '',
     streetNumber: '321',
-    streetName: 'Oak St',
+    streetName: 'Oak St.',
     province: 'Newfoundland & Labrador',
     counrty: 'Canada',
     images: [
@@ -623,6 +623,18 @@ function renderRecentlyViewed() {
                         item.button.classList.add('info-active');
                     });
                 });
+
+                mapBtn.addEventListener('click', () => {
+
+                    // let getCords = `https://nominatim.openstreetmap.org/search?q=${listing.streetNumber}+${listing.streetName},+${listing.city},+${listing.province},+Canada&format=json&addressdetails=1&limit=1`;
+
+
+                    let fullAddress = `${listing.streetNumber} ${listing.streetName}, ${listing.city}, ${listing.province}, Canada`;
+                    let getCords = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(fullAddress)}&format=json&addressdetails=1&limit=1`;
+
+
+                    console.log(getCords);
+                })
 
                 mapBtn.addEventListener('click', () => {
                     console.log('clicked');
