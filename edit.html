@@ -65,41 +65,103 @@
         <section class="form">
             <form method="POST" id="update-form" class="update-form">
                 <h1>Update Listings</h1>
-                <p class="required">All fields are required *</p>
+                <p class="required">Marked fields are required *</p>
                 <div class="form-group"> 
-                    <label for="title">Property Title</label>
+                    <label for="title">Property Title *</label>
                     <input type="text" id="title" name="title" required>
                 </div>
-                <div class="form-group prop-type">
-                    <label for="property-type">Property Type</label>
-                    <select id="property-type" name="property-type">
-                        <option value="" disabled selected>Select Property Type</option>
-                        <option value="house">House</option>
-                        <option value="apartment">Apartment</option>
-                        <option value="condo">Condo</option>
-                        <option value="cottage">Cottage</option>
-                    </select>
+                <div class="form-group-two">
+                    <div class="form-group prop-type">
+                        <label for="property-type">Property Type *</label>
+                        <select id="property-type" name="property-type" required>
+                            <option value="" disabled selected>Select Property Type</option>
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="condo">Condo</option>
+                            <option value="cottage">Cottage</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price *</label>
+                        <input type="number" id="price" name="price" required>
+                    </div>
                 </div>
-                <div class="form-group"> 
-                    <label for="city">City</label>
-                    <input type="text" value="" id="city" name="city" required>
+                <div class="form-group-three">
+                    <div class="form-group">
+                        <label for="apt-number">Apt. Number</label>
+                        <input type="text" id="apt-number" name="apt-number" placeholder="If Applicable">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="street-number">Street Number *</label>
+                        <input type="number" id="street-number" name="street-number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="street-name">Street Name *</label>
+                        <input type="text" id="street-name" name="street-name" required>
+                    </div>
                 </div>
-                <div class="form-group"> 
-                    <label for="address">Address</label>
-                    <input type="text" value="" id="address" name="address" required>
+
+                <div class="form-group-three">
+                    <div class="form-group">
+                        <label for="city">City *</label>
+                        <select name="city" id="city">
+                            <option value="" disabled selected>Select City</option>
+                            <option value="Torbay">Torbay</option>
+                            <option value="Gander">Gander</option>
+                            <option value="Paradise">Paradise</option>
+                            <option value="St. John's">St. John's</option>
+                            <option value="Mount Pearl">Mount Pearl</option>
+                            <option value="Conception Bay South">Conception Bay South</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="province">Province/State *</label>
+                        <select name="province" id="province">
+                            <option value="" disabled selected>Select Province</option>
+                            <option value="Quebec">Quebec</option>
+                            <option value="Ontario">Ontario</option>
+                            <option value="Manitoba">Manitoba</option>
+                            <option value="Nova Scotia">Nova Scotia</option>
+                            <option value="New Brunswick">New Brunswick</option>
+                            <option value="Newfoundland & Labrador">Newfoundland & Labrador</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country *</label>
+                        <input type="text" id="country" name="country" disabled>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="price">Price</label>
-                    <input type="number" value="" id="price" name="price" required>
+
+                <div class="form-group-three">
+                    <div class="form-group">
+                        <label for="bedrooms">Bedrooms *</label>
+                        <input type="number" id="bedrooms" name="bedrooms" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bathrooms">Bathrooms *</label>
+                        <input type="number" id="bathrooms" name="bathrooms" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="garage">Garage *</label>
+                        <input type="number" id="garage" name="garage" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="bedrooms">Bedrooms</label>
-                    <input type="number" value="" id="bedrooms" name="bedrooms" required>
+
+                <div class="form-group-two">
+                    <div class="form-group">
+                        <label for="Build Year">Build Year *</label>
+                        <input type="number" id="build-year" name="build-year" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Lot Area">Lot Area *</label>
+                        <input type="number" id="lot-area" name="lot-area" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="bathrooms">Bathrooms</label>
-                    <input type="number" value="" id="bathrooms" name="bathrooms" required>
-                </div>
+
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea id="description" value="" name="description" rows="4" required></textarea>
@@ -181,9 +243,16 @@
         document.getElementById("price").value = listing.price;
         document.getElementById("bedrooms").value = listing.bedrooms;
         document.getElementById("bathrooms").value = listing.bathrooms;
+        document.getElementById("garage").value = listing.garage;
+        document.getElementById("lot-area").value = listing.lotArea;
+        document.getElementById("build-year").value = listing.buildYear;
         document.getElementById("status").value = listing.status;
         document.getElementById("contact").value = listing.contact;
         document.getElementById("city").value = listing.city;
-        document.getElementById("address").value = listing.address;
+        document.getElementById("apt-number").value = listing.aptNumber;
+        document.getElementById("street-number").value = listing.streetNumber;
+        document.getElementById("street-name").value = listing.streetName;
+        document.getElementById("province").value = listing.province;
+        document.getElementById("country").value = listing.country;
     })
 </script>

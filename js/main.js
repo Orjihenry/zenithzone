@@ -793,7 +793,6 @@ function checkValidation() {
     const status = document.querySelector("#status");
     const contact = document.querySelector("#contact");
     const city = document.querySelector("#city");
-    const aptNumber = document.querySelector('#apt-number');
     const streetNumber = document.querySelector('#street-number');
     const streetName = document.querySelector('#street-name');
     const province = document.querySelector('#province');
@@ -801,7 +800,7 @@ function checkValidation() {
 
     let emptyField = false;
 
-    const requiredFields = [title, propertyType, description, price, bedrooms, bathrooms, garage, lotArea, buildYear, status, contact, city, aptNumber, streetNumber, streetName, province, country];
+    const requiredFields = [title, propertyType, description, price, bedrooms, bathrooms, garage, lotArea, buildYear, status, contact, city, streetNumber, streetName, province, country];
 
     requiredFields.forEach(field => {
     if (field.value.trim() === '') {
@@ -852,7 +851,6 @@ function createListings() {
         propertyType: propertyType,
         description: description,
         price: price,
-        city: city,
         bedrooms: bedrooms,
         bathrooms: bathrooms,
         garage: garage,
@@ -890,10 +888,17 @@ function update() {
     let price = document.querySelector("#price").value;
     let bedrooms = document.querySelector("#bedrooms").value;
     let bathrooms = document.querySelector("#bathrooms").value;
+    let garage = document.querySelector("#garage").value;
+    let lotArea = document.querySelector("#lot-area").value;
+    let buildYear = document.querySelector("#build-year").value;
     let status = document.querySelector("#status").value;
     let featured = listings[index].featured;
     let city = document.querySelector("#city").value;
-    let address = document.querySelector("#address").value;
+    let aptNumber = document.querySelector('#apt-number').value;
+    let streetNumber = document.querySelector('#street-number').value;
+    let streetName = document.querySelector('#street-name').value;
+    let province = document.querySelector('#province').value;
+    let country = document.querySelector('#country').value;
     let images = imageUrls || [];
         images = images.map(image => image.trim());
 
@@ -904,10 +909,17 @@ function update() {
         price: price,
         bedrooms: bedrooms,
         bathrooms: bathrooms,
+        garage: garage,
+        lotArea: lotArea,
+        buildYear: buildYear,
         status: status,
         featured: featured,
         city: city,
-        address: address,
+        aptNumber: aptNumber,
+        streetNumber: streetNumber,
+        streetName: streetName,
+        province: province,
+        country: country,
         images: images
     };
 
