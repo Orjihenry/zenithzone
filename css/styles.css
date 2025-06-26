@@ -421,6 +421,10 @@ ul {
     font-style: italic;
 }
 
+.modal-content h2 {
+    font-size: 30px;
+}
+
 .swal2-confirm {
     background-color: var(--primary-color);
 }
@@ -437,6 +441,7 @@ ul {
 .info-map {
     padding: 20px;
     opacity: .5;
+    cursor: pointer;
 }
 
 .info-left-feat {
