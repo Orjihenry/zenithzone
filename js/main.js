@@ -833,10 +833,17 @@ function createListings() {
     let price = document.querySelector("#price").value;
     let bedrooms = document.querySelector("#bedrooms").value;
     let bathrooms = document.querySelector("#bathrooms").value;
+    let garage = document.querySelector("#garage").value;
+    let lotArea = document.querySelector("#lot-area").value;
+    let buildYear = document.querySelector("#build-year").value;
     let status = document.querySelector("#status").value;
     let featured = false;
     let city = document.querySelector("#city").value;
-    let address = document.querySelector("#address").value;
+    let aptNumber = document.querySelector('#apt-number').value;
+    let streetNumber = document.querySelector('#street-number').value;
+    let streetName = document.querySelector('#street-name').value;
+    let province = document.querySelector('#province').value;
+    let country = document.querySelector('#country').value;
     let images = imageUrls
         images = images.map(image => image.trim());
 
@@ -849,8 +856,17 @@ function createListings() {
         city: city,
         bedrooms: bedrooms,
         bathrooms: bathrooms,
+        garage: garage,
+        lotArea: lotArea,
+        buildYear: buildYear,
         status: status,
         featured: featured,
+        city: city,
+        aptNumber: aptNumber,
+        streetNumber: streetNumber,
+        streetName: streetName,
+        province: province,
+        country: country,
         address: address,
         images: images
     };
