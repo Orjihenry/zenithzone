@@ -4,7 +4,7 @@ var listings = [
     title: "Beautiful Beach House",
     description: "A stunning beach house with ocean views.",
     price: 500000,
-    featured: true,
+    featured: false,
     bedrooms: 4,
     bathrooms: 3,
     garage: 2,
@@ -352,10 +352,8 @@ function displayListings() {
                             </p>
                         </div>
 
-                        <div class="info-intro-map">
-                            <p>
-                               Map iframe here...
-                            </p>
+                        <div class="info-intro-map" style="width: 100%;">
+                            <div id="map" style="height: 250px"></div>
                         </div>
                         <div class="action-buttons">
                             <button class="def-btn" id="edit-listing">Edit</button>
@@ -388,6 +386,19 @@ function displayListings() {
                         item.button.classList.add('info-active');
                     });
                 });
+
+                mapBtn.addEventListener('click', () => {
+                    console.log('clicked');
+                    const map = L.map('map').setView([47.5615, -52.7126], 13);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; OpenStreetMap contributors'
+                    }).addTo(map);
+
+                    L.marker([47.5615, -52.7126]).addTo(map)
+                        .bindPopup(listing.title)
+                        .openPopup();
+                })
 
                 const modalImages = modalDialog.querySelectorAll(".modal-images li");
                 const prevButton = modalDialog.querySelector(".btn-prev");

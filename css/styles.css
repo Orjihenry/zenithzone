@@ -441,6 +441,7 @@ ul {
 .info-left-feat {
     display: flex;
     flex-wrap: wrap;
+    justify-content:  space-evenly;
 }
 
 .info-active {
