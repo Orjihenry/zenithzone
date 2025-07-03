@@ -71,7 +71,7 @@ p {
     .nav-hero .sidebar ul a.active {
         color: #d7e4eb;
         background-color: #5b95b1;
-        border: 1px solid;
+        /* border: 1px solid; */
         border-radius: 5px;
     }
 
