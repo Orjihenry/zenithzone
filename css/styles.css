@@ -220,10 +220,9 @@ img {
 }
 
 .row {
+    gap: 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
     padding-top: 0px;
     animation-delay: 0.3s;
     animation: fadeIn 0.8s ease-out forwards;
@@ -245,8 +244,9 @@ img {
 
 .cols {
     width: 100%;
-    flex: 0 0 31.9%;
+    flex: 0 0 31%;
     cursor: pointer;
+    margin: 0 10px;
     padding-top: 3rem;
     position: relative;
     transition: transform 0.3s ease;
@@ -595,6 +595,18 @@ ul {
 
     .newsletter > div {
         padding: 1rem 1rem 1rem 0;
+    }
+}
+
+@media screen and (max-width: 1271px) {
+    .cols {
+        flex: 0 0 29%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .cols {
+        margin: 0 10px;
     }
 }
 

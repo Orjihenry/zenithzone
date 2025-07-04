@@ -266,8 +266,8 @@ function displayListings() {
             let lotArea = priceFormat.format(listing.lotArea);
             // Build HTML structure
             let html = `
-                <div class="property prop-details cols ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
-                    <div class="img btn-modal" style="background-image: url('${listing.images[0]}');"></div>
+                <div class="property prop-details cols btn-modal ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
+                    <div class="img" style="background-image: url('${listing.images[0]}');"></div>
                     <div class="text">
                         <p class="price">
                             <span class="orig-price">$${price}</span>
@@ -508,8 +508,8 @@ function renderRecentlyViewed() {
         let price = priceFormat.format(listing.price);
         let lotArea = priceFormat.format(listing.lotArea);
         let html = `
-        <div class="property prop-details cols ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
-                    <div class="img btn-modal" style="background-image: url('${listing.images[0]}');"></div>
+        <div class="property prop-details cols btn-modal ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
+                    <div class="img" style="background-image: url('${listing.images[0]}');"></div>
                     <div class="text">
                         <p class="price">
                             <span class="orig-price">$${price}</span>
