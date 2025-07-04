@@ -192,11 +192,6 @@
     margin: 5% auto;
 }
 
-.div-card {
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-}
-
 .div-card img {
     width: 97px;
     margin: 10px auto;
@@ -305,9 +300,14 @@ h1 {
 
 /* Media Frames */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
     .slider p {
         margin: 1.5% auto;
+    }
+
+    .div-card {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
     }
 }
 
