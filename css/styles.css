@@ -243,27 +243,21 @@ img {
     }
 }
 
-.ft-cols {
+.cols {
     width: 100%;
-    margin: 3% 0;
-    padding-right: 15px;
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
+    flex: 0 0 31.9%;
+    cursor: pointer;
+    padding-top: 3rem;
     position: relative;
-    box-shadow: 0 0 0 0 rgba(#f3ddec, .5);
-}
-
-.ft-cols {
     transition: transform 0.3s ease;
 }
 
-.ft-cols:hover {
-    transform: scale(0.97);
+.cols:hover {
+    transform: scale(1.1);
 }
 
-.ft-cols .img {
+.cols .img {
     display: block;
-    cursor: pointer;
     width: 100%;
     height: 250px;
 }

@@ -266,26 +266,26 @@ function displayListings() {
             let lotArea = priceFormat.format(listing.lotArea);
             // Build HTML structure
             let html = `
-            <div class="property prop-details ft-cols ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
+                <div class="property prop-details cols ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
                     <div class="img btn-modal" style="background-image: url('${listing.images[0]}');"></div>
-                    <div class="ft-text">
+                    <div class="text">
                         <p class="price">
                             <span class="orig-price">$${price}</span>
                         </p>
 
                         <ul class="property_list">
-        					<li><span class="flaticon-bed"></span><i class="fi fi-tr-bed-alt"></i>${listing.bedrooms}</li>
-        					<li><span class="flaticon-bathtub"></span><i class="fi fi-tr-bath"></i>${listing.bathrooms}</li>
-        					<li><span class="flaticon-floor-plan"></span><i class="fi fi-tr-ruler-triangle"></i>${lotArea} sqft</li>
-        				</ul>
+                            <li><span class="flaticon-bed"></span><i class="fi fi-tr-bed-alt"></i>${listing.bedrooms}</li>
+                            <li><span class="flaticon-bathtub"></span><i class="fi fi-tr-bath"></i>${listing.bathrooms}</li>
+                            <li><span class="flaticon-floor-plan"></span><i class="fi fi-tr-ruler-triangle"></i>${lotArea} sqft</li>
+                        </ul>
 
                         <h3>${listing.title}</h3>
                         <span class="location">${listing.city}</span>
                         <a class="btn-modal def-btn d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"><i class="fi fi-tr-link-alt"></i></span>
-        				</a>
+                            <span class="ion-ios-link"><i class="fi fi-tr-link-alt"></i></span>
+                        </a>
                     </div>
-            </div>
+                </div>
             `;
         
             listingsContainer.innerHTML += html;
@@ -508,9 +508,9 @@ function renderRecentlyViewed() {
         let price = priceFormat.format(listing.price);
         let lotArea = priceFormat.format(listing.lotArea);
         let html = `
-        <div class="property prop-details ft-cols ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
+        <div class="property prop-details cols ${listing.featured ? "featListing" : "non-featured"}" id="details" data-id="${listing.id}">
                     <div class="img btn-modal" style="background-image: url('${listing.images[0]}');"></div>
-                    <div class="ft-text">
+                    <div class="text">
                         <p class="price">
                             <span class="orig-price">$${price}</span>
                         </p>
