@@ -219,9 +219,28 @@ img {
     position: relative;
 }
 
-.ft-row {
+.row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 0px;
+    animation-delay: 0.3s;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate3d(0, 40px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 .ft-cols {
@@ -255,13 +274,9 @@ img {
     background-position: center center;
 }
 
-.ft-cols .ft-text {
-    position: relative;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+.cols .text {
+    width: 90%;
+    padding: 25px;
     margin-top: -50px;
     margin-left: 20px;
     background: #f3ddec;
