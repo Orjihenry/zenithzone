@@ -8,8 +8,7 @@ A modern, serverless real estate platform designed for listing and discovering p
 ## 🔗 Live Demo: [https://orjihenry.github.io/zenithzone](https://orjihenry.github.io/zenithzone/index.html)
 
 <p align="center">
-    <img src="assets/screenshots/mobile-screenshot.png" alt="Screenshot of Zenith Zone Realty" height="300" style="margin-right: 10px;">
-    <img src="assets/screenshots/desktop-screenshot.png" alt="Screenshot of Zenith Zone Realty" height="300">
+    <img src="assets/screenshots/zenith_zone_screenshot.png" alt="Screenshot of Zenith Zone Realty" height="400" style="margin-right: 10px;">
 </p>
 
 ## Project Features
